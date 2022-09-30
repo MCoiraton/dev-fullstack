@@ -11,7 +11,7 @@ import javax.persistence.Table;
 public class Centre {
     @Id
     private Integer centre_id;
-    private String ville;
+    private String nom;
     private String adresse;
-    
+    private String ville;   
 }
