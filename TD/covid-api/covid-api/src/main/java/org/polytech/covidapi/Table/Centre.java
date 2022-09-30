@@ -8,7 +8,7 @@ import javax.persistence.Table;
 @Table(name="Centre")
 public class Centre {
     @Id
-    private Integer id;
+    private Integer centre_id;
     private String ville;
     private String adresse;
     

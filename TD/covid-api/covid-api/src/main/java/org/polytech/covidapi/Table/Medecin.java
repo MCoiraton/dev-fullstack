@@ -2,6 +2,8 @@ package org.polytech.covidapi.Table;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToMany;
 import javax.persistence.Table;
 
 @Entity
@@ -9,8 +11,12 @@ import javax.persistence.Table;
 public class Medecin {
     @Id
     private Integer id;
+
+    @ManyToMany
+    @JoinColumn(name="centre_id")
+    private Centre centre;
+
     private String pwd;
     private String nom;
     private String prenom;
-    private Integer idCentre;
 }

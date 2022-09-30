@@ -2,6 +2,8 @@ package org.polytech.covidapi.Table;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToMany;
 import javax.persistence.Table;
 
 @Entity
@@ -9,6 +11,9 @@ import javax.persistence.Table;
 public class Admin {
     @Id
     private Integer id;
-    private Integer idCentre;
+    
+    @ManyToMany
+    @JoinColumn(name="centre_id")
+    private Centre centre;
     
 }
