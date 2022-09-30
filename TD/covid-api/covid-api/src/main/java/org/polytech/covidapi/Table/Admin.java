@@ -17,4 +17,20 @@ public class Admin {
     @JoinColumn(name="centre_id")
     private Centre centre;
     
+    public Integer getId(){
+        return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
+    }
+
+    public void setCentre(Centre centre) {
+        this.centre = centre;
+    }
+
+    public Centre getCentre(){
+        return centre;
+    }
+
 }

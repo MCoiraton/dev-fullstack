@@ -23,4 +23,62 @@ public class RendezVous {
     @JoinColumn(name="centre_id")
     private Centre centre;
 
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
+    }
+
+    public String getMail() {
+        return mail;
+    }
+
+    public void setMail(String mail) {
+        this.mail = mail;
+    }
+
+    public Integer getTel() {
+        return tel;
+    }
+
+    public void setTel(Integer tel) {
+        this.tel = tel;
+    }
+
+    public String getFirstName() {
+        return firstName;
+    }
+
+    public void setFirstName(String firstName) {
+        this.firstName = firstName;
+    }
+
+    public String getLastName() {
+        return lastName;
+    }
+
+    public void setLastName(String lastName) {
+        this.lastName = lastName;
+    }
+
+    public Date getAppointmentDate() {
+        return appointmentDate;
+    }
+
+    public void setAppointmentDate(Date appointmentDate) {
+        this.appointmentDate = appointmentDate;
+    }
+
+    public Centre getCentre() {
+        return centre;
+    }
+
+    public void setCentre(Centre centre) {
+        this.centre = centre;
+    }
+
+ 
+
 }
