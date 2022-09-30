@@ -4,6 +4,8 @@ import java.sql.Date;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 @Entity
@@ -17,5 +19,8 @@ public class RendezVous {
     private String lastName;
     private Date appointmentDate;
     
+    @ManyToOne
+    @JoinColumn(name="centre_id")
+    private Centre centre;
 
 }
