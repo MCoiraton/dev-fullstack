@@ -19,5 +19,9 @@ public class CentreRest {
     public List<Centre> getAll(){
         return centreService.getCentres();
     }
+    @GetMapping(path = "/ville")
+    public List<Centre> getByVille(String ville){
+        return centreService.getByVille(ville);
+    }
 
 }

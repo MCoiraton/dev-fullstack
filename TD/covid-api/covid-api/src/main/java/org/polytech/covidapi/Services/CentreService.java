@@ -23,4 +23,10 @@ public class CentreService {
         centreRepository.findAll().forEach(centres::add);
         return centres;
     }
+
+    public List<Centre>getByVille(String ville){
+        List<Centre> centres=new ArrayList<>();
+        centreRepository.findByVille(ville).forEach(centres::add);;
+        return centres;
+    }
 }
