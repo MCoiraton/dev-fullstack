@@ -14,12 +14,16 @@ public class RendezVousRest {
     @Autowired
     private RendezVousService rendezVousService;
 
-    @GetMapping(path="/medecins")
+    @GetMapping(path="/rdvs")
     public List<RendezVous> getAll(){
         return rendezVousService.getRendezVous();
     }
-    @GetMapping(path = "/centerMedecins")
-    public List<Medecin> getByCentre(Centre centerId){
-        return medecinService.getByCentre(centerId);
+    @GetMapping(path="/rdv")
+    public List<RendezVous> getByName(String name){
+        return rendezVousService.getByName(name);
+    }
+    @GetMapping(path = "/centerRdv")
+    public List<RendezVous> getByCentre(Centre centerId){
+        return rendezVousService.getByCentre(centerId);
     }    
 }
