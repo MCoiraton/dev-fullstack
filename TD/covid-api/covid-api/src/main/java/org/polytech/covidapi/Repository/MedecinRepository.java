@@ -7,5 +7,5 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface MedecinRepository extends JpaRepository <Medecin, Integer>{
-    List<Medecin> findByCenter (Integer centerId);
+    List<Medecin> findByCentre (Integer centerId);
 }

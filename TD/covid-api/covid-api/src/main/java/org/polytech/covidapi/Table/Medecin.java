@@ -4,6 +4,7 @@ import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToMany;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 @Entity
@@ -12,7 +13,7 @@ public class Medecin {
     @Id
     private Integer id;
 
-    @ManyToMany
+    @ManyToOne
     @JoinColumn(name="centre_id")
     private Centre centre;
 
