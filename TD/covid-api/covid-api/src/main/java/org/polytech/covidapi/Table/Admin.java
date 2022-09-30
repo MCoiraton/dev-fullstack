@@ -9,6 +9,6 @@ import javax.persistence.Table;
 public class Admin {
     @Id
     private Integer id;
-    private Centre centre;
+    private Integer idCentre;
     
 }

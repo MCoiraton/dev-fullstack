@@ -12,5 +12,5 @@ public class Medecin {
     private String pwd;
     private String nom;
     private String prenom;
-    private Centre centre;
+    private Integer idCentre;
 }
