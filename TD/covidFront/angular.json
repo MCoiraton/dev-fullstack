@@ -68,6 +68,10 @@
             },
             "development": {
               "browserTarget": "covidFront:build:development"
+            },
+            "options": {
+              "browserTarget": "covidFront:build",
+              "proxyConfig": "src/proxy.conf.json"
             }
           },
           "defaultConfiguration": "development"
