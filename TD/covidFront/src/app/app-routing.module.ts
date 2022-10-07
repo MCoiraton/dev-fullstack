@@ -5,9 +5,10 @@ import { CenterlistComponent } from './centerlist/centerlist.component';
 import { SearchbarComponent } from './searchbar/searchbar.component';
 
 const routes: Routes = [
-  { path: "search", component: SearchbarComponent},
-  { path: "appointment", component: AppointmentComponent},
-  { path: "list", component: CenterlistComponent}
+  { path: 'search', component: SearchbarComponent},
+  { path: 'appointment', component: AppointmentComponent},
+  { path: 'list', component: CenterlistComponent},
+  { path : '', redirectTo: 'search', pathMatch: 'full'}
 ];
 
 @NgModule({
