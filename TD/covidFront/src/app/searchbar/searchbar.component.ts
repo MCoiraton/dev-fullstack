@@ -5,6 +5,7 @@ import { Component, OnInit } from '@angular/core';
   templateUrl: './searchbar.component.html',
   styleUrls: ['./searchbar.component.css']
 })
+
 export class SearchbarComponent implements OnInit {
 
   constructor() { }
