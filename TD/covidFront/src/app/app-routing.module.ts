@@ -7,7 +7,7 @@ import { SearchbarComponent } from './searchbar/searchbar.component';
 const routes: Routes = [
   { path: 'search', component: SearchbarComponent},
   { path: 'appointment/:idCentre', component: AppointmentComponent},
-  { path: 'list', component: CenterlistComponent},
+  { path: 'list/:ville', component: CenterlistComponent},
   { path : '', redirectTo: 'search', pathMatch: 'full'}
 ];
 
