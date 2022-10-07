@@ -10,6 +10,6 @@ export class CenterlistService{
     constructor(private httpClient : HttpClient){}
 
     getAllCentersCity(city : string) : Observable<CenterlistComponent[]>{
-        return this.httpClient.get<CenterlistComponent[]>("api/centres")
+        return this.httpClient.get<CenterlistComponent[]>("api/ville")
     }
 }
