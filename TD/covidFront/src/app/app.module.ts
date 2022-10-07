@@ -1,4 +1,5 @@
 import { NgModule } from '@angular/core';
+import { MatInputModule } from '@angular/material/input';
 import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule } from '@angular/common/http'
 import { AppRoutingModule } from './app-routing.module';
@@ -17,7 +18,8 @@ import { AppointmentComponent } from './appointment/appointment.component';
   imports: [
     BrowserModule,
     HttpClientModule,
-    AppRoutingModule
+    AppRoutingModule,
+    MatInputModule
   ],
   providers: [],
   bootstrap: [AppComponent]
