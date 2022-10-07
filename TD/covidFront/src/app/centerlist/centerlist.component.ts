@@ -23,6 +23,8 @@ export class CenterlistComponent implements OnInit {
     centerList : new Array,  
   }
 
+
+
   
   
   ngOnInit(): void {
@@ -30,6 +32,7 @@ export class CenterlistComponent implements OnInit {
       this.ville=params['ville'];
     });
     this.service.getAllCentersCity(this.ville).subscribe(resultCenters=>{
+      console.log(resultCenters);
       resultCenters.forEach(element => {
         this.centers.centerList.push(element)        
       });
