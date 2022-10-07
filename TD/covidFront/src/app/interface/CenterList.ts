@@ -1,5 +1,5 @@
 import { Center } from "./Center";
 
 export interface CenterList{
-    centerList : Array<Center>;
+    centerList : Array<any>;
 }

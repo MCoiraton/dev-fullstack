@@ -3,6 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Observable } from 'rxjs'
 import { CenterList } from '../interface/CenterList';
+import { CenterlistService } from './centerlist.service';
 
 @Component({
   selector: 'app-centerlist',
@@ -14,21 +15,25 @@ export class CenterlistComponent implements OnInit {
   ville!: string;
   private sub:any;
 
-  constructor(private httpClient: HttpClient, private route:ActivatedRoute) {
+  constructor(private service:CenterlistService, private route:ActivatedRoute) {
    
    }
   
   centers: CenterList = {
-    centerList : this.getAllCentersCity(this.ville);
+    centerList : new Array,  
   }
 
-  getAllCentersCity(city : string) : Observable<CenterlistComponent[]>{
-    return this.httpClient.get<CenterlistComponent[]>("api/centres")
-  }
+  
+  
   ngOnInit(): void {
     this.sub=this.route.params.subscribe(params=>{
       this.ville=params['ville'];
     });
+    this.service.getAllCentersCity(this.ville).subscribe(resultCenters=>{
+      resultCenters.forEach(element => {
+        this.centers.centerList.push(element)        
+      });
+    })
   }
 
 }
