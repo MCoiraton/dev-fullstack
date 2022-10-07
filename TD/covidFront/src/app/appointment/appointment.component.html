@@ -1,1 +1,34 @@
-<button routerLink="/search">return</button>
+<div>
+    <div>
+        <button routerLink="/search">return</button>
+        <h1>Prendre Rendez-Vous</h1>
+    </div>
+    <div>
+        <div>
+            <h3>{{center.name}}</h3>
+            <h4>{{center.adresse}}, {{center.ville}}</h4>
+        </div>
+        <div>
+            <form class="example-form">
+                <mat-form-field class="example-full-width" appearance="fill">
+                  <mat-label>Prénom</mat-label>
+                  <input matInput placeholder="Prénom">
+                </mat-form-field>
+                <mat-form-field class="example-full-width" appearance="fill">
+                    <mat-label>Nom</mat-label>
+                    <input matInput placeholder="Nom">
+                </mat-form-field>
+              
+                <mat-form-field class="example-full-width" appearance="fill">
+                    <mat-label>email</mat-label>
+                    <input matInput placeholder="email">
+                </mat-form-field>
+                <mat-form-field class="example-full-width" appearance="fill">
+                    <mat-label>Date</mat-label>
+                    <input matInput placeholder="Date">
+                </mat-form-field>
+                <button type=submit></button>
+            </form>
+        </div>
+    </div>
+</div>

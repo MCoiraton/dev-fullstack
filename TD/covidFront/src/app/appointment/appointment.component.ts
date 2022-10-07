@@ -12,7 +12,7 @@ export class AppointmentComponent implements OnInit {
   constructor() { }
 
   center: Center = {
-    Center_id=42,
+    Center_id : 42,
     name: "centre 42",
     adresse : "rue de la reponse",
     ville : "somewherovertherainbow"
