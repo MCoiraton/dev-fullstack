@@ -1,7 +1,10 @@
 <h1>{{title}}</h1>
 <div>
-  <h2>Recherchez un centre {{title}}</h2>
   <a routerLink="/search"> Recherche </a>
+  <a routerLink="/appointment/{{42}}"> test rdv</a>
+  <div>
+    <router-outlet></router-outlet>
+  </div>
   <form method="post">
   </form>
 </div>
