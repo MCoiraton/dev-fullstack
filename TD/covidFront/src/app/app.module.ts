@@ -7,6 +7,7 @@ import { AppComponent } from './app.component';
 import { SearchbarComponent } from './searchbar/searchbar.component';
 import { CenterlistComponent } from './centerlist/centerlist.component';
 import { AppointmentComponent } from './appointment/appointment.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,8 @@ import { AppointmentComponent } from './appointment/appointment.component';
     BrowserModule,
     HttpClientModule,
     AppRoutingModule,
-    MatInputModule
+    MatInputModule,
+    BrowserAnimationsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
