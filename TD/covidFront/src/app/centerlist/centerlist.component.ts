@@ -11,10 +11,15 @@ export class CenterlistComponent implements OnInit {
 
   constructor(private httpClient: HttpClient) { }
 
-  getAllCentersCity(city : string) : Observable<CenterlistComponent[]>{
-    return this.httpClient.get<CenterlistComponent[]>("api/centres")
+  getAllCentersCity(villes : string) : Observable<CenterlistComponent[]>{
+    return this.httpClient.get<CenterlistComponent[]>("/centres", { 
+      params: {
+        "villes" : villes
+      }
+    }); 
   }
   ngOnInit(): void {
+    
   }
 
 }
