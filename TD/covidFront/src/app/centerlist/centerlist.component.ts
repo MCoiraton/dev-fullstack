@@ -1,6 +1,7 @@
 import { HttpClient} from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs'
+import { CenterList } from '../interface/CenterList';
 
 @Component({
   selector: 'app-centerlist',
@@ -10,6 +11,10 @@ import { Observable } from 'rxjs'
 export class CenterlistComponent implements OnInit {
 
   constructor(private httpClient: HttpClient) { }
+  
+  centers: CenterList = {
+    centerList : 
+  }
 
   getAllCentersCity(city : string) : Observable<CenterlistComponent[]>{
     return this.httpClient.get<CenterlistComponent[]>("api/centres")
