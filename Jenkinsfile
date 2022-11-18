@@ -3,7 +3,7 @@ pipeline {
   stages {
     stage('pull') {
       steps {
-        git(url: 'https://github.com/MCoiraton/dev-fullstack', branch: 'Master')
+        git(url: 'https://github.com/MCoiraton/dev-fullstack', branch: 'master')
       }
     }
     stage('dockerfile'){
