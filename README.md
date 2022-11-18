@@ -1,4 +1,4 @@
-docker compose up -d
-jenkins : 
-- user: admin
-- mdp: admin
+- in cmd: docker compose up -d
+- jenkins : 
+  - user: admin
+  - mdp: admin
