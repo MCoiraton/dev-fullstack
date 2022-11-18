@@ -9,7 +9,7 @@ pipeline {
     stage('build'){
             steps {
                 script {
-                    dockerImage = docker.build 'MCoiraton/covidproject'
+                    dockerImage = docker.build 'mcoiraton/devfullstack'
                 }
             }
         }
