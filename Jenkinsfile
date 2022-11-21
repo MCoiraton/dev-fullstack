@@ -26,7 +26,7 @@ pipeline {
 
         stage('run'){
             steps {
-                sh 'docker run helloworld'
+                sh 'docker run helloworldtest'
             }
         }
     }
