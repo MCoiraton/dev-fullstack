@@ -1,8 +1,8 @@
 FROM gradle:7-alpine AS builder
 
-WORKDIR /TD/covid-api
+WORKDIR /TD
 
-COPY /TD/covid-api /
+COPY /TD/covid-api/covid-api /
 
 RUN gradle clean --no-daemon && gradle bootJar --no-daemon
 
