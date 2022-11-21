@@ -1,6 +1,6 @@
 FROM gradle:7-alpine AS builder
 
-WORKDIR /TD/covid-api/covid-api
+WORKDIR /TD
 
 COPY /TD/covid-api/covid-api /
 
