@@ -1,6 +1,36 @@
+<!-->
 <form class="example-form">
     <mat-form-field class="example-full-width" appearance="fill">
       <mat-label>Ville recherchée</mat-label>
       <input matInput placeholder="Ex. Pizza" value="Sushi">
     </mat-form-field>
   </form>
+  
+<table class="table" id="tab">
+  <thead>
+    <tr>
+      <th scope="col">Nom</th>
+      <th scope="col">Adresse</th>
+      <th scope="col">Ville</th>
+    </tr>
+ 
+  </thead>
+  <tbody>
+    <tr *ngFor="let centre of centres;">
+      <td>{{ centre.name }}</td>
+      <td>{{ centre.adresse }}</td>
+      <td>{{ centre.ville }}</td>
+    </tr>
+  </tbody>
+</table>-->
+
+<div id = 'searchCenter'>
+  <label for = 'search-box'> Recherche de centres</label>
+  <input #searchBox id="search-box" (input)="search(searchBox.value)" />
+
+  <ul class = "search-results">
+    <li *ngFor="let centre of centres$ | async">
+
+    </li>
+  </ul>
+</div>
