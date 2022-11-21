@@ -1,4 +1,8 @@
+import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
+import { Subject } from 'rxjs';
+import { Center } from '../interface/Center';
+import { SearchbarService } from './searchbar.service';
 
 @Component({
   selector: 'app-searchbar',
@@ -8,9 +12,24 @@ import { Component, OnInit } from '@angular/core';
 
 export class SearchbarComponent implements OnInit {
 
-  constructor() { }
+  centres:Center [] = [];
+  private searchTerms = new Subject<string>();
 
-  ngOnInit(): void {
+  constructor(private searchbarService : SearchbarService){
+
   }
 
+  ngOnInit(): void {
+    this.getCentres()
+  }
+
+  getCentres(): void {
+    this.searchbarService.getCentres().
+    subscribe(centres => this.centres = centres);
+    console.log('test' + this.centres);
+  }
+
+  search(term : string): void {
+    this.searchTerms.next(term);
+  }
 }

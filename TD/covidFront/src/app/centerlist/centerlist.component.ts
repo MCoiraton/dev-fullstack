@@ -22,10 +22,6 @@ export class CenterlistComponent implements OnInit {
   centers: CenterList = {
     centerList : new Array,  
   }
-
-
-
-  
   
   ngOnInit(): void {
     this.sub=this.route.params.subscribe(params=>{
