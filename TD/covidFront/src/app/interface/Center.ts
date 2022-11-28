@@ -1,6 +1,6 @@
 export interface Center{
-    Center_id: number;
-    name: string;
+    centreId: number;
+    nom: string; //Attention à bien mettre nom et pas name, ça ne fonctionne pas sinon
     adresse : string;
     ville : string;
 }

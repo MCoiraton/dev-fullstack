@@ -17,20 +17,25 @@
   </thead>
   <tbody>
     <tr *ngFor="let centre of centres;">
-      <td>{{ centre.name }}</td>
+      <td>{{ centre.nom }}</td>
       <td>{{ centre.adresse }}</td>
       <td>{{ centre.ville }}</td>
     </tr>
   </tbody>
 </table>-->
 
-<div id = 'searchCenter'>
-  <label for = 'search-box'> Recherche de centres</label>
+<div id='searchCenter'>
+  <label for='search-box'> Recherche de centres</label>
   <input #searchBox id="search-box" (input)="search(searchBox.value)" />
 
-  <ul class = "search-results">
-    <li *ngFor="let centre of centres$ | async">
-
+  <ul class="search-results">
+    <li *ngFor="let centre of centres$ | async"> <!-- Comme on a un NgInit on peut faire un ngFor* pour le faire pour chaque élément présent dans centres$-->
+      <a [routerLink]="['/appointment/', centre.centreId]" [state]= "{id: centre.centreId, nom: centre.nom, adresse: centre.adresse}">
+      {{centre.nom}}
+    </a>  
+        <ul class="adresse">
+          {{centre.adresse}}
+        </ul>
     </li>
   </ul>
 </div>

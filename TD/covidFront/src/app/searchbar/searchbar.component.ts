@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
-import { Subject } from 'rxjs';
+import { debounceTime, distinctUntilChanged, Observable, Subject, switchMap } from 'rxjs';
 import { Center } from '../interface/Center';
 import { SearchbarService } from './searchbar.service';
 
@@ -13,6 +13,7 @@ import { SearchbarService } from './searchbar.service';
 export class SearchbarComponent implements OnInit {
 
   centres:Center [] = [];
+  centres$!: Observable<Center[]>;
   private searchTerms = new Subject<string>();
 
   constructor(private searchbarService : SearchbarService){
@@ -20,7 +21,11 @@ export class SearchbarComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.getCentres()
+    this.centres$ = this.searchTerms.pipe(
+      debounceTime(300),
+      distinctUntilChanged(),
+      switchMap((term: string) => this.searchbarService.searchCentres(term)),
+    );
   }
 
   getCentres(): void {
