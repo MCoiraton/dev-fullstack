@@ -17,7 +17,7 @@ pipeline {
         stage('push'){
             steps {
                 script{
-                    docker.withRegistry('','dockerHub') {
+                    docker.withRegistry('','dockerhub') {
                         dockerImage.push('latest')
                     }   
                 }
@@ -26,7 +26,7 @@ pipeline {
 
         stage('run'){
             steps {
-                sh 'docker run helloworld'
+                sh 'docker run helloworldtest'
             }
         }
     }
