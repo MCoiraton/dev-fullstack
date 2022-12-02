@@ -1,5 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Center } from '../interface/Center';
+import { Location } from '@angular/common';
 
 
 @Component({
@@ -9,16 +11,15 @@ import { Center } from '../interface/Center';
 })
 export class AppointmentComponent implements OnInit {
 
-  constructor() { }
+  centreData: any;
 
-  center: Center = {
-    Center_id : 42,
-    name: "centre 42",
-    adresse : "rue de la reponse",
-    ville : "somewherovertherainbow"
+  constructor(private router: Router, private activatedRoute:ActivatedRoute) { 
+    console.log(this.router.getCurrentNavigation()?.extras.state)
   }
 
-  ngOnInit(): void {
+  ngOnInit() {
+    this.centreData = Object.values(history.state) //Object.values() permet de récupérer notre object state et de le convertir en array 
+    console.log(this.centreData)
   }
 
 }
