@@ -23,11 +23,5 @@ pipeline {
                 }
             }
         }
-
-        stage('run'){
-            steps {
-                sh 'docker run helloworldtest'
-            }
-        }
     }
 }
