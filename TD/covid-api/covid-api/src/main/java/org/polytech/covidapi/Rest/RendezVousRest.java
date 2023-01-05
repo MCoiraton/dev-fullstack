@@ -8,6 +8,8 @@ import org.polytech.covidapi.Table.Centre;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
@@ -15,6 +17,12 @@ import org.springframework.web.bind.annotation.RestController;
 public class RendezVousRest {
     @Autowired
     private RendezVousService rendezVousService;
+    private final RendezVousRepository repository;
+
+    RendezVousRest(RendezVousRepository repository){
+        this.repository = repository;
+    }
+    
 
     @GetMapping(path="/rdvs")
     public List<RendezVous> getAll(){
@@ -27,5 +35,10 @@ public class RendezVousRest {
     @GetMapping(path = "/centerRdv")
     public List<RendezVous> getByCentre(Centre centerId){
         return rendezVousService.getByCentre(centerId);
-    }    
+    }
+    @PostMapping(path = "/appointment")
+    RendezVous newRendezVous(@RequestBody RendezVous newRendezVous){
+        return repository.save(newRendezVous);
+    }
+    
 }

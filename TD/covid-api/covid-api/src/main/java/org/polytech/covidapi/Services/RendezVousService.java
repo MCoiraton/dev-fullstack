@@ -19,9 +19,7 @@ public class RendezVousService {
     }
 
     public List<RendezVous> getRendezVous(){
-        List<RendezVous> rendezVous = new ArrayList<>();
-        rendezVousRepository.findAll().forEach(rendezVous::add);
-        return rendezVous;
+        return rendezVousRepository.findAll();
     }
 
     public List<RendezVous> getByName(String name){
