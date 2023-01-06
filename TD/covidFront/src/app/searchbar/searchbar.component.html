@@ -1,41 +1,21 @@
-<!-->
-<form class="example-form">
-    <mat-form-field class="example-full-width" appearance="fill">
-      <mat-label>Ville recherchée</mat-label>
-      <input matInput placeholder="Ex. Pizza" value="Sushi">
-    </mat-form-field>
-  </form>
-  
-<table class="table" id="tab">
-  <thead>
-    <tr>
-      <th scope="col">Nom</th>
-      <th scope="col">Adresse</th>
-      <th scope="col">Ville</th>
-    </tr>
- 
-  </thead>
-  <tbody>
-    <tr *ngFor="let centre of centres;">
-      <td>{{ centre.nom }}</td>
-      <td>{{ centre.adresse }}</td>
-      <td>{{ centre.ville }}</td>
-    </tr>
-  </tbody>
-</table>-->
-
-<div id='searchCenter'>
-  <label for='search-box'> Recherche de centres</label>
-  <input #searchBox id="search-box" (input)="search(searchBox.value)" />
-
-  <ul class="search-results">
-    <li *ngFor="let centre of centres$ | async"> <!-- Comme on a un NgInit on peut faire un ngFor* pour le faire pour chaque élément présent dans centres$-->
-      <a [routerLink]="['/appointment/', centre.centreId]" [state]= "{id: centre.centreId, nom: centre.nom, adresse: centre.adresse}">
-      {{centre.nom}}
-    </a>  
+<div id='searchCenter' class="card">
+  <div class="card-body">
+    <div class="form-group">
+      <label for='search-box'> Recherche de centres</label>
+      <input class="form-control" #searchBox id="search-box" (input)="search(searchBox.value)" />
+      <small id="searchHelp" class="form-text text-muted">recherchez votre ville</small>
+    </div>
+    <ul class="list-group">
+      <li class="list-group-item" *ngFor="let centre of centres$ | async">
+        <!-- Comme on a un NgInit on peut faire un ngFor* pour le faire pour chaque élément présent dans centres$-->
+        <a [routerLink]="['/appointment/', centre.centreId]"
+          [state]="{id: centre.centreId, nom: centre.nom, adresse: centre.adresse}">
+          {{centre.nom}}
+        </a>
         <ul class="adresse">
           {{centre.adresse}}
         </ul>
-    </li>
-  </ul>
+      </li>
+    </ul>
+  </div>
 </div>

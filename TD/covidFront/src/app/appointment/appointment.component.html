@@ -1,26 +1,28 @@
-<div>
-    <div>
-        <button routerLink="/search">return</button>
-        <h1>Prendre Rendez-Vous</h1>
-    </div>
-    <div>
-        <div>
-            Centre choisi :
-           
-            <li>Nom : {{centreData[1]}} </li>
-            <li>Adresse : {{centreData[2]}} </li><br>
-
+<div class="card">
+    <div class="card-body bg-light text-center">
+        <h1 class="card-title">Prendre Rendez-Vous</h1>
+        <div class="card bg-info text-white " style="margin: auto;">
+            <div class="card-body ">
+                <h3 class="card-title">Centre choisi :</h3>
+                <ul class="list-group">
+                    <li class="list-group-item bg-light text-dark">Nom : {{centreData[1]}} </li>
+                    <li class="list-group-item bg-light text-dark">Adresse : {{centreData[2]}} </li>
+                </ul>
+            </div>
         </div>
         <div>
-            <form class="example-form" >
-                <input id="prenom" placeholder="Prénom" [formControl]="prenom">
-                <input id="nom" placeholder="Nom" [formControl]="nom">
-                <input id="mail" placeholder="email" [formControl]="mail">
-                <input id="date" placeholder="aaaa-MM-jj" [formControl]="date">
-                <input id="telephone" placeholder="0601020304" [formControl]="telephone">
-                <button type="button" (click)="submit()">Prendre RDV</button>
+            <h3>Vos Information :</h3>
+            <form class="form-group" >
+                <input class="form-control bg-light" id="prenom" placeholder="Prénom" [formControl]="prenom">
+                <input class="form-control bg-light" id="nom" placeholder="Nom" [formControl]="nom">
+                <input class="form-control bg-light" id="mail" placeholder="email" [formControl]="mail">
+                <input class="form-control bg-light" id="date" placeholder="aaaa-MM-jj" [formControl]="date">
+                <input class="form-control bg-light" id="telephone" placeholder="0601020304" [formControl]="telephone">
+                <button class="btn btn-primary" type="button" (click)="submit()">Prendre RDV</button>
             </form>
-
+        </div>
+    </div>
+</div>
 <br><br>
 <p>Données rentrées : </p> 
 <p>Prénom = {{prenom.value}}</p>

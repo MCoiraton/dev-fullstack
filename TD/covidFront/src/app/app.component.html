@@ -1,6 +1,26 @@
-<h1>{{title}}</h1>
+<nav class="navbar bg-primary navbar-expand-lg navbar-dark">
+    <h1 class="navbar-brand" style="margin: auto;">{{title}}</h1>
+    <div class="collapse navbar-collapse" id="navbarColor01" style="margin-left: 1em ;">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item active">
+          <a class="nav-link" href="#">Recherche de Centre<span class="sr-only">(current)</span></a>
+        </li>
+        <!--
+        <li class="nav-item">
+          <a class="nav-link" href="#">Features</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Pricing</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">About</a>
+        </li>
+        -->
+      </ul>
+    </div>
+</nav>
+
 <div>
-  <a routerLink="/search"> Recherche </a>
   <div>
     <router-outlet></router-outlet>
   </div>
