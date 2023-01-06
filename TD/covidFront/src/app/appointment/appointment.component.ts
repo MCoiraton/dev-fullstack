@@ -43,7 +43,6 @@ export class AppointmentComponent implements OnInit {
         centre_id: this.centreData[0]
       }
     }
-    console.log(data)
     //.subscribe est OBLIGATOIRE car un observable doit l'avoir pour pouvoir être utilisé (j'ai perdu 2h de ma vie)
     this.AppointmentService.createAppointment(data).subscribe( 
       response => console.log(response)

@@ -8,6 +8,7 @@ const routes: Routes = [
   { path: 'search', component: SearchbarComponent},
   { path: 'appointment/:idCentre', component: AppointmentComponent},
   { path: 'list/:ville', component: CenterlistComponent},
+  { path: 'appointment/:email', component: AppointmentComponent},
   { path : '', redirectTo: 'search', pathMatch: 'full'}
 ];
 
