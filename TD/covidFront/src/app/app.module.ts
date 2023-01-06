@@ -8,6 +8,8 @@ import { SearchbarComponent } from './searchbar/searchbar.component';
 import { CenterlistComponent } from './centerlist/centerlist.component';
 import { AppointmentComponent } from './appointment/appointment.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule }        from '@angular/forms'
 
 @NgModule({
   declarations: [
@@ -21,7 +23,9 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     HttpClientModule,
     AppRoutingModule,
     MatInputModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    ReactiveFormsModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -22,11 +22,11 @@ public class RendezVousService {
         return rendezVousRepository.findAll();
     }
 
-    public List<RendezVous> getByName(String name){
+    /*public List<RendezVous> getByName(String name){
         List<RendezVous> rendezVous=new ArrayList<>();
         rendezVousRepository.findByName(name).forEach(rendezVous::add);
         return rendezVous;
-    }
+    }*/
 
     public List<RendezVous> getByCentre(Centre centre){
         List<RendezVous>rendezVous = new ArrayList<>();

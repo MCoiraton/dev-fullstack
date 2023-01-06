@@ -2,7 +2,10 @@ package org.polytech.covidapi.Table;
 
 import java.sql.Date;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
@@ -12,6 +15,8 @@ import javax.persistence.Table;
 @Table(name="RendezVous")
 public class RendezVous {
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY) 
+    @Column(name = "id", updatable = false, nullable = false) //On fait en sorte que l'id s'incrémente tout seul
     private Integer id;
     private String mail;
     private Integer tel;

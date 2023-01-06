@@ -28,10 +28,10 @@ public class RendezVousRest {
     public List<RendezVous> getAll(){
         return rendezVousService.getRendezVous();
     }
-    @GetMapping(path="/rdv")
+    /*@GetMapping(path="/rdv")
     public List<RendezVous> getByName(String name){
         return rendezVousService.getByName(name);
-    }
+    }*/
     @GetMapping(path = "/centerRdv")
     public List<RendezVous> getByCentre(Centre centerId){
         return rendezVousService.getByCentre(centerId);

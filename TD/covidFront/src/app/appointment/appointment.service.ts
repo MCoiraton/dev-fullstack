@@ -7,9 +7,14 @@ import { Appointment } from "../interface/Appointment";
     providedIn:'root'//a changer
 })
 export class AppointmentService{
-    constructor(private httpClient :HttpClient){}
+
+    private urlPost = 'http://localhost:8080/appointment' //url pour le POST
+
+    constructor(
+        private httpClient: HttpClient){
+        }
     
-    createAppointment(appointment:Appointment):Observable<Appointment>{
-        return this.httpClient.post("")
+    createAppointment(appointment:any){
+        return this.httpClient.post<Appointment[]>(this.urlPost, appointment)
     }
 }

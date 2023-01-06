@@ -8,30 +8,22 @@
             Centre choisi :
            
             <li>Nom : {{centreData[1]}} </li>
-            <li>Adresse : {{centreData[2]}} </li>
+            <li>Adresse : {{centreData[2]}} </li><br>
 
         </div>
         <div>
-            <form class="example-form">
-                <mat-form-field class="example-full-width" appearance="fill">
-                  <mat-label>Prénom</mat-label>
-                  <input matInput placeholder="Prénom">
-                </mat-form-field>
-                <mat-form-field class="example-full-width" appearance="fill">
-                    <mat-label>Nom</mat-label>
-                    <input matInput placeholder="Nom">
-                </mat-form-field>
-              
-                <mat-form-field class="example-full-width" appearance="fill">
-                    <mat-label>email</mat-label>
-                    <input matInput placeholder="email">
-                </mat-form-field>
-                <mat-form-field class="example-full-width" appearance="fill">
-                    <mat-label>Date</mat-label>
-                    <input matInput placeholder="Date">
-                </mat-form-field>
-                <button type=submit>Prendre RDV</button>
+            <form class="example-form" >
+                <input id="prenom" placeholder="Prénom" [formControl]="prenom">
+                <input id="nom" placeholder="Nom" [formControl]="nom">
+                <input id="mail" placeholder="email" [formControl]="mail">
+                <input id="date" placeholder="aaaa-MM-jj" [formControl]="date">
+                <input id="telephone" placeholder="0601020304" [formControl]="telephone">
+                <button type="button" (click)="submit()">Prendre RDV</button>
             </form>
-        </div>
-    </div>
-</div>
+
+<br><br>
+<p>Données rentrées : </p> 
+<p>Prénom = {{prenom.value}}</p>
+<p>Nom = {{nom.value}}</p>
+<p>Mail = {{mail.value}}</p>
+<p>Date = {{date.value}}</p>
