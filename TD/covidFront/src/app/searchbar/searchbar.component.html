@@ -8,8 +8,7 @@
     <ul class="list-group">
       <li class="list-group-item" *ngFor="let centre of centres$ | async">
         <!-- Comme on a un NgInit on peut faire un ngFor* pour le faire pour chaque élément présent dans centres$-->
-        <a [routerLink]="['/appointment/', centre.centreId]"
-          [state]="{id: centre.centreId, nom: centre.nom, adresse: centre.adresse}">
+        <a [routerLink]="['/appointment/', centre.centreId]" [state]="{id: centre.centreId, nom: centre.nom, adresse: centre.adresse}">
           {{centre.nom}}
         </a>
         <ul class="adresse">
