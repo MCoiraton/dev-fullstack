@@ -13,4 +13,5 @@ public interface RendezVousRepository extends JpaRepository <RendezVous, Integer
     //@Query("SELECT R FROM RendezVous R WHERE R.firstName = :name OR R.lastName = :name")
     //List<RendezVous> findByName (@Param("name") String name);
     List<RendezVous> findByCentre (Centre centre);
+    List<RendezVous> findByMail (@Param("mail") String mail);
 }

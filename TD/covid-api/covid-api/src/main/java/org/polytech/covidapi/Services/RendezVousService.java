@@ -33,4 +33,9 @@ public class RendezVousService {
         rendezVousRepository.findByCentre(centre).forEach(rendezVous::add);
         return rendezVous;
     }
+
+    public List<RendezVous> getByEmail(String email){
+        return rendezVousRepository.findByMail(email);
+        
+    }
 }

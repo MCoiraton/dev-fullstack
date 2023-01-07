@@ -15,9 +15,9 @@
             <form class="form-group" >
                 <input class="form-control bg-light" id="prenom" placeholder="Prénom" [formControl]="prenom">
                 <input class="form-control bg-light" id="nom" placeholder="Nom" [formControl]="nom">
-                <input class="form-control bg-light" id="mail" placeholder="email" [formControl]="mail">
-                <input class="form-control bg-light" id="date" placeholder="aaaa-MM-jj" [formControl]="date">
-                <input class="form-control bg-light" id="telephone" placeholder="0601020304" [formControl]="telephone">
+                <input class="form-control bg-light" id="mail" placeholder="Email" [formControl]="mail">
+                <input class="form-control bg-light" id="date" placeholder="Date du rendez-vous au format : aaaa-MM-jj" [formControl]="date">
+                <input class="form-control bg-light" id="telephone" placeholder="Téléphone" [formControl]="telephone">
                 <button class="btn btn-primary" type="button" (click)="submit()">Prendre RDV</button>
             </form>
         </div>

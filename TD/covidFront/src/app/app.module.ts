@@ -9,14 +9,16 @@ import { CenterlistComponent } from './centerlist/centerlist.component';
 import { AppointmentComponent } from './appointment/appointment.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ReactiveFormsModule } from '@angular/forms';
-import { FormsModule }        from '@angular/forms'
+import { FormsModule }        from '@angular/forms';
+import { SearchAppointmentComponent } from './search-appointment/search-appointment.component'
 
 @NgModule({
   declarations: [
     AppComponent,
     SearchbarComponent,
     CenterlistComponent,
-    AppointmentComponent
+    AppointmentComponent,
+    SearchAppointmentComponent
   ],
   imports: [
     BrowserModule,
