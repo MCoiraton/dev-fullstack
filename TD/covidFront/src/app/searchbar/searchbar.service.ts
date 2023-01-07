@@ -23,6 +23,8 @@ export class SearchbarService{
 
     //Pareil pour le search le premier if permet d'avoir un object nul vu qu'on refresh à chaque mise à jour du bloc recherche
     searchCentres(term: string): Observable<Center[]> {
+        //mise en majuscule de la première lettre
+        term=term.charAt(0).toUpperCase() + term.slice(1);
         if (!term.trim()) {
             return of([]);
         }
