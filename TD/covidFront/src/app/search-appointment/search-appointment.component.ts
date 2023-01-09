@@ -6,7 +6,7 @@ import { Center } from '../interface/Center';
 import { SearchAppointmentService } from './search-appointment.service';
 
 @Component({
-  selector: 'app-searchbar',
+  selector: 'app-searchAppointment',
   templateUrl: './search-appointment.component.html',
   styleUrls: ['./search-appointment.component.css']
 })

@@ -5,20 +5,20 @@ import { HttpClientModule } from '@angular/common/http'
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { SearchbarComponent } from './searchbar/searchbar.component';
-import { CenterlistComponent } from './centerlist/centerlist.component';
 import { AppointmentComponent } from './appointment/appointment.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ReactiveFormsModule } from '@angular/forms';
 import { FormsModule }        from '@angular/forms';
-import { SearchAppointmentComponent } from './search-appointment/search-appointment.component'
+import { SearchAppointmentComponent } from './search-appointment/search-appointment.component';
+import { CenterManagementComponent } from './center-management/center-management.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     SearchbarComponent,
-    CenterlistComponent,
     AppointmentComponent,
-    SearchAppointmentComponent
+    SearchAppointmentComponent,
+    CenterManagementComponent,
   ],
   imports: [
     BrowserModule,

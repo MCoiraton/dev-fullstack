@@ -2,8 +2,8 @@
     <div class="card-body">
       <div class="form-group">
         <label for='search-box'> Recherche de votre rendez-vous</label>
-        <input class="form-control" #searchBox id="search-box" (input)="search(searchBox.value)" />
-        <small id="searchHelp" class="form-text text-muted">recherchez votre rendez-vous</small>
+        <input class="form-control" #searchBox id="search-box" (input)="search(searchBox.value)"/>
+        <small id="searchHelp" class="form-text text-muted">recherchez votre rendez-vous avec votre email</small>
       </div>
       <ul class="list-group">
         <li class="list-group-item" *ngFor="let appointment of appointments$ | async">

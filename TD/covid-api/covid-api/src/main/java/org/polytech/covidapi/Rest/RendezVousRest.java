@@ -40,8 +40,8 @@ public class RendezVousRest {
     public List<RendezVous> getByName(String name){
         return rendezVousService.getByName(name);
     }*/
-    @GetMapping(path = "/centerRdv")
-    public List<RendezVous> getByCentre(Centre centerId){
+    @GetMapping(path = "/centerRdv/{centerId}")
+    public List<RendezVous> getByCentre(@PathVariable("centerId") Centre centerId){
         return rendezVousService.getByCentre(centerId);
     }
     @PostMapping(path = "/appointment")

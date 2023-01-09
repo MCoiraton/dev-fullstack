@@ -15,7 +15,8 @@ export class SearchbarComponent implements OnInit {
   centres:Center [] = [];
   centres$!: Observable<Center[]>;
   private searchTerms = new Subject<string>();
-
+  url='';
+  isAdmin=true;
   constructor(private searchbarService : SearchbarService){
 
   }
@@ -26,6 +27,13 @@ export class SearchbarComponent implements OnInit {
       distinctUntilChanged(),
       switchMap((term: string) => this.searchbarService.searchCentres(term)),
     );
+    if(this.isAdmin){
+      this.url="/centerRdv/"
+    }
+    else{
+      this.url="/appointment/"
+    }
+    console.log(this.url)
   }
 
   getCentres(): void {
@@ -37,4 +45,7 @@ export class SearchbarComponent implements OnInit {
   search(term : string): void {
     this.searchTerms.next(term);
   }
+
+  //a changer !
+
 }
