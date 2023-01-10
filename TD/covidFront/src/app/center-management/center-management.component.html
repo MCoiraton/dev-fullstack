@@ -1,0 +1,10 @@
+<app-searchbar></app-searchbar>
+<ul class="list-group">
+    <li class="list-group-item" *ngFor="let appointment of appointments$ | async">
+        <p>Id de référencement : {{appointment.id}}</p>
+        <p>Nom : {{appointment.firstName}}</p>
+        <p>Prénom : {{appointment.lastName}}</p>
+        <p>Email : {{appointment.mail}}</p>
+        <strong>Date de rendez-vous : {{appointment.appointmentDate}}</strong>
+    </li>
+  </ul>
