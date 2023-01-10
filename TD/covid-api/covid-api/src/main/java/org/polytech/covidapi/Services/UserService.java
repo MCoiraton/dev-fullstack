@@ -15,19 +15,29 @@ import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.password.PasswordEncoder;
+import org.springframework.stereotype.Service;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 
+@Service
 public class UserService implements UserDetailsService{
 
     private static Logger log = LoggerFactory.getLogger(UserService.class);
     private final LoginRepository loginRepository;
-    private final PasswordEncoder passwordEncoder;
+    public final PasswordEncoder passwordEncoder;
     
-    @Autowired
+
     public UserService(final LoginRepository loginRepository, PasswordEncoder passwordEncoder){
         this.loginRepository = loginRepository;
         this.passwordEncoder = passwordEncoder;
+   
     }
-    
+
+    public Users addUsers(Users user){
+        loginRepository.save(user);
+        return user;
+    }
+
     @PostConstruct
     public void createUserDefault(){
         log.info("Création de l'utilisateur par défaut");
