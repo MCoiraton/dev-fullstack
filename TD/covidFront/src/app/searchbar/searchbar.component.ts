@@ -15,7 +15,6 @@ export class SearchbarComponent implements OnInit {
   centres:Center [] = [];
   centres$!: Observable<Center[]>;
   private searchTerms = new Subject<string>();
-
   constructor(private searchbarService : SearchbarService){
 
   }

@@ -10,3 +10,15 @@ spring:
        ddl-auto: update
   liquibase:
     enabled: false
+logging:
+  level:
+    org:
+      springframework:
+        security: DEBUG
+      hibernate:
+        SQL: debug
+        type:
+          descriptor:
+            sql:
+              BasicBinder: TRACE
+          
