@@ -3,6 +3,7 @@ package org.polytech.covidapi.Rest.Public;
 import org.polytech.covidapi.Repository.LoginRepository;
 import org.polytech.covidapi.Services.UserService;
 import org.polytech.covidapi.Table.Users;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -15,6 +16,7 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping("/api")
 public class LoginRest {
 
+    @Autowired
     private final LoginRepository repository;
     private final UserService userService;
     private final PasswordEncoder passwordEncoder;
@@ -33,7 +35,6 @@ public class LoginRest {
     @PostMapping(path = "signup")
     public void addUser(@RequestBody Users newUser){
        newUser.setPassword(passwordEncoder.encode(newUser.getPassword()));
-       newUser.setRole(newUser.getRole());
        userService.addUsers(newUser);
     }
 }

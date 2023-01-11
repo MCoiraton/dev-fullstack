@@ -1,11 +1,13 @@
 package org.polytech.covidapi.Services;
 
+import java.util.Collections;
 import java.util.List;
 import java.util.Optional;
 
 import javax.annotation.PostConstruct;
 
 import org.polytech.covidapi.Repository.LoginRepository;
+import org.polytech.covidapi.Table.Role;
 import org.polytech.covidapi.Table.Users;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -45,17 +47,19 @@ public class UserService implements UserDetailsService{
         if(!loginRepository.findByLogin("user").isPresent() && !loginRepository.findByLogin("admin").isPresent()){
             log.info("Création de l'utilisateur par défaut");
             Users users = new Users();
+            Role roleUser = new Role("USER");
             users.setLogin("user");
-            users.setRole(List.of("USER"));
             users.setPassword(passwordEncoder.encode("password"));
             users.setAdmin(false);
+            users.setRole(roleUser);
             this.loginRepository.save(users);
             log.info("Création de l'admin par défaut");
             Users admin = new Users();
+            Role roleAdmin = new Role("ADMIN");
             admin.setLogin("admin");
-            admin.setRole(List.of("ADMIN"));
             admin.setPassword(passwordEncoder.encode("password"));
             admin.setAdmin(true);
+            admin.setRole(roleAdmin);
             this.loginRepository.save(admin);
         }
     }
@@ -70,7 +74,7 @@ public class UserService implements UserDetailsService{
             Optional<Users> optionalUser = loginRepository.findByLogin(login);
             if (optionalUser.isPresent()){
                 Users user = optionalUser.get();
-                return new User(user.getLogin(), user.getPassword(), user.getRole().stream().map(SimpleGrantedAuthority::new).toList());
+                return new User(user.getLogin(), user.getPassword(), Collections.singletonList(user.getRole().getRole()).stream().map(SimpleGrantedAuthority::new).toList());
             }
             else {
                 throw new UsernameNotFoundException("L'utilisateur" + login + "n'existe pas");
