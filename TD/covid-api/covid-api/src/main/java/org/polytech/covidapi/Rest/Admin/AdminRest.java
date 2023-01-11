@@ -1,4 +1,4 @@
-package org.polytech.covidapi.Rest;
+package org.polytech.covidapi.Rest.Admin;
 import java.util.List;
 
 import org.polytech.covidapi.Repository.AdminRepository;
@@ -11,12 +11,12 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @CrossOrigin
-@RestController
+@RestController("/admin")
 public class AdminRest {
     @Autowired
     private AdminService adminService;
 
-    @GetMapping(path="/admins")
+    @GetMapping(path = "/admins")
     public List<Admin> getAll(){
         return adminService.getAdmins();
     }

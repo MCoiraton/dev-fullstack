@@ -5,6 +5,10 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.security.access.AccessDecisionVoter;
+import org.springframework.security.access.hierarchicalroles.RoleHierarchy;
+import org.springframework.security.access.hierarchicalroles.RoleHierarchyImpl;
+import org.springframework.security.access.vote.RoleHierarchyVoter;
 import org.springframework.security.config.Customizer;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
@@ -28,13 +32,24 @@ public class SecurityConfig {
     @Bean
     public SecurityFilterChain filterChain(HttpSecurity http, UserDetailsService userDetailsService) throws Exception{
         http
-        .authorizeHttpRequests((authz) -> authz.anyRequest().authenticated())
+        .authorizeHttpRequests((authz) -> authz
+        .antMatchers("/api/**").permitAll()
+        .antMatchers("/admin/**").hasAuthority("ADMIN"))
         .httpBasic(Customizer.withDefaults())
             .cors().disable()
             .csrf().disable()
         .sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS);
         return http.build();
     }
+
+    @Bean
+    AccessDecisionVoter hierarchyVoter(){
+        RoleHierarchy hierarchy=new RoleHierarchyImpl();
+        ((RoleHierarchyImpl) hierarchy).setHierarchy("ROLE_ADMIN > ROLE_STAFF\n"+
+        "ROLE_STAFF > ROLE_USER\n"+
+        "ROLE_USER > ROLE_GUEST");
+        return new RoleHierarchyVoter(hierarchy);
+        }
 
     @Bean
     public PasswordEncoder passwordEncoder(){

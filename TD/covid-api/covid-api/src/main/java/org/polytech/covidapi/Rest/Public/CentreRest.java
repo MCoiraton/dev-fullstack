@@ -1,4 +1,4 @@
-package org.polytech.covidapi.Rest;
+package org.polytech.covidapi.Rest.Public;
 
 import java.util.List;
 

@@ -1,4 +1,4 @@
-package org.polytech.covidapi.Rest;
+package org.polytech.covidapi.Rest.Public;
 import java.util.List;
 
 import org.polytech.covidapi.Repository.RendezVousRepository;
@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@CrossOrigin
+@CrossOrigin("/api")
 public class RendezVousRest {
     @Autowired
     private RendezVousService rendezVousService;
@@ -25,7 +25,7 @@ public class RendezVousRest {
     }
     
 
-    @GetMapping(path="/rdvs")
+    @GetMapping(path ="/rdvs")
     public List<RendezVous> getAll(){
         return rendezVousService.getRendezVous();
     }
