@@ -10,7 +10,8 @@ import { AppointmentComponent } from './appointment/appointment.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ReactiveFormsModule } from '@angular/forms';
 import { FormsModule }        from '@angular/forms';
-import { SearchAppointmentComponent } from './search-appointment/search-appointment.component'
+import { SearchAppointmentComponent } from './search-appointment/search-appointment.component';
+import { LoginComponent } from './login/login.component'
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { SearchAppointmentComponent } from './search-appointment/search-appointm
     SearchbarComponent,
     CenterlistComponent,
     AppointmentComponent,
-    SearchAppointmentComponent
+    SearchAppointmentComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
