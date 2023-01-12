@@ -22,6 +22,7 @@ export class LoginComponent implements OnInit {
     const data = {
       login:this.login.value,
       mdp:this.mdp.value,
+      role:"test",
     }
     //.subscribe est OBLIGATOIRE car un observable doit l'avoir pour pouvoir être utilisé (j'ai perdu 2h de ma vie)
     this.LoginService.login(data).subscribe(

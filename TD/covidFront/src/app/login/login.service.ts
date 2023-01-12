@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient} from '@angular/common/http';
+import { User } from '../interface/user';
 
 @Injectable({
   providedIn: 'root'
@@ -12,6 +13,6 @@ export class LoginService {
         }
     
   login(login:any) {
-    return this.httpClient.post<boolean>(this.urlPostNewUser, login)
+    return this.httpClient.post<User>(this.urlPostNewUser, login)
   }
 }
