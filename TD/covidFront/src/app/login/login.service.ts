@@ -40,7 +40,7 @@ export class LoginService {
         this.router.navigate(['/login']);
     }
 
-    signin(user:any) {
-      return this.http.post<User>('http://localhost:8080/api/signin', user)
+    signup(user:any) {
+      return this.http.post<User>('http://localhost:8080/api/signup', user)
     }
 }

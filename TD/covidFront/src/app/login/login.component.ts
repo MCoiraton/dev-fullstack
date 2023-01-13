@@ -36,13 +36,13 @@ export class LoginComponent implements OnInit {
     else console.log("erreur")
   }
 
-  signin() {
+  signup() {
     const data = {
       login: this.loginForm.value.user,
       mdp: this.loginForm.value.mdp,
       role: "",
     }
-    this.LoginService.signin(data).subscribe(
+    this.LoginService.signup(data).subscribe(
       response => console.log(response)
     );
 

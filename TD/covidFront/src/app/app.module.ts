@@ -16,6 +16,7 @@ import { FormsModule }        from '@angular/forms';
 import { SearchAppointmentComponent } from './search-appointment/search-appointment.component';
 import { LoginComponent } from './login/login.component'
 import { MatFormFieldModule } from "@angular/material/form-field";
+import { WaitingComponent } from './waiting/waiting.component';
 
 
 @NgModule({
