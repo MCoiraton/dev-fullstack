@@ -24,8 +24,12 @@ export class LoginComponent implements OnInit {
   }
 
   login() {
+    const data = {
+      login: this.loginForm.value.user,
+      mdp: this.loginForm.value.mdp,
+    }
     if (this.loginForm.valid) {
-      this.LoginService.login(this.loginForm).subscribe(
+      this.LoginService.login(data).subscribe(
         response => console.log(response)
       );
     }
@@ -34,11 +38,11 @@ export class LoginComponent implements OnInit {
 
   signin() {
     const data = {
-      login: this.loginForm.value,
-      mdp: this.loginForm.value,
+      login: this.loginForm.value.user,
+      mdp: this.loginForm.value.mdp,
       role: "",
     }
-    this.LoginService.signin(this.loginForm).subscribe(
+    this.LoginService.signin(data).subscribe(
       response => console.log(response)
     );
 
