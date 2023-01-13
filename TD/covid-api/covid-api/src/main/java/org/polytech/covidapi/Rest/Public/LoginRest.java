@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+
 @RestController
 @CrossOrigin
 @RequestMapping("/api")
@@ -27,6 +28,7 @@ public class LoginRest {
         this.repository = repository;
         this.userService = userService;
         this.passwordEncoder = passwordEncoder;
+
     }
 
     @GetMapping()
@@ -38,5 +40,6 @@ public class LoginRest {
     public void addUser(@RequestBody Users newUser){
        newUser.setPassword(passwordEncoder.encode(newUser.getPassword()));
        userService.addUsers(newUser);
+       
     }
 }

@@ -5,6 +5,7 @@ import { CenterlistComponent } from './centerlist/centerlist.component';
 import { LoginComponent } from './login/login.component';
 import { SearchAppointmentComponent } from './search-appointment/search-appointment.component';
 import { SearchbarComponent } from './searchbar/searchbar.component';
+import { WaitingComponent } from './waiting/waiting.component';
 
 const routes: Routes = [
   { path: 'search', component: SearchbarComponent},
@@ -12,7 +13,9 @@ const routes: Routes = [
   { path: 'list/:ville', component: CenterlistComponent},
   { path: 'searchAppointment', component: SearchAppointmentComponent},
   { path: 'login', component: LoginComponent},
-  { path : '', redirectTo: 'search', pathMatch: 'full'}
+  { path: 'waiting/:temps', component: WaitingComponent},
+
+  { path : '**', redirectTo: 'search', pathMatch: 'full'}
 ];
 
 @NgModule({

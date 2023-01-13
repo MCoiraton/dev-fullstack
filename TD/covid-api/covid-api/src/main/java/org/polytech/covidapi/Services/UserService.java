@@ -63,8 +63,7 @@ public class UserService implements UserDetailsService{
             this.loginRepository.save(admin);
         }
     }
-    
-
+    /* */
     @Override
     @Transactional(readOnly = true)
     public UserDetails loadUserByUsername(final String login) 

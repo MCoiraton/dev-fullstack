@@ -21,4 +21,9 @@ logging:
           descriptor:
             sql:
               BasicBinder: TRACE
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health, info, prometheus, metrics
           

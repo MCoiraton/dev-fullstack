@@ -8,7 +8,7 @@ import { Appointment } from "../interface/Appointment";
 })
 export class AppointmentService{
 
-    private urlPost = 'http://localhost:8080/appointment' //url pour le POST
+    private urlPost = 'http://localhost:8080/api/appointment' //url pour le POST
 
     constructor(
         private httpClient: HttpClient){
