@@ -1,5 +1,5 @@
-import { Component, OnInit } from '@angular/core';
-import { FormControl } from '@angular/forms';
+import { Component, Inject, OnInit } from '@angular/core';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { LoginService } from './login.service';
 
 @Component({
@@ -8,26 +8,40 @@ import { LoginService } from './login.service';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
-  login = new FormControl('');
-  mdp = new FormControl('');
+  loginForm: FormGroup | any;
 
 
-  constructor(private LoginService: LoginService) {
+  constructor(@Inject(LoginService) private LoginService: LoginService) {
+    this.loginForm = new FormGroup({
+      user: new FormControl('', [Validators.required]),
+      mdp: new FormControl('', [Validators.required, Validators.pattern(
+        '^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%^&*_=+-]).{8,12}$'
+      )])
+    });
   }
 
   ngOnInit(): void {
   }
 
-  submit() {
-    const data = {
-      login:this.login.value,
-      mdp:this.mdp.value,
-      role:"test",
+  login() {
+    if (this.loginForm.valid) {
+      this.LoginService.login(this.loginForm).subscribe(
+        response => console.log(response)
+      );
     }
-    //.subscribe est OBLIGATOIRE car un observable doit l'avoir pour pouvoir être utilisé (j'ai perdu 2h de ma vie)
-    this.LoginService.login(data).subscribe(
+    else console.log("erreur")
+  }
+
+  signin() {
+    const data = {
+      login: this.loginForm.value,
+      mdp: this.loginForm.value,
+      role: "",
+    }
+    this.LoginService.signin(this.loginForm).subscribe(
       response => console.log(response)
     );
 
   }
+
 }

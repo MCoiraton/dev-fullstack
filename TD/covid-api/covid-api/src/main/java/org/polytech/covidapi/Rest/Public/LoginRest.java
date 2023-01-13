@@ -39,4 +39,9 @@ public class LoginRest {
        newUser.setPassword(passwordEncoder.encode(newUser.getPassword()));
        userService.addUsers(newUser);
     }
+
+    @PostMapping(path="login")
+    public void logUser(@RequestBody Users user){
+        userService.findUser(user.getLogin(),passwordEncoder.encode(user.getPassword()));
+    }
 }

@@ -12,6 +12,8 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { FormsModule }        from '@angular/forms';
 import { SearchAppointmentComponent } from './search-appointment/search-appointment.component';
 import { LoginComponent } from './login/login.component'
+import { MatFormFieldModule } from "@angular/material/form-field";
+
 
 @NgModule({
   declarations: [
@@ -29,6 +31,7 @@ import { LoginComponent } from './login/login.component'
     MatInputModule,
     BrowserAnimationsModule,
     ReactiveFormsModule,
+    MatFormFieldModule,
     FormsModule
   ],
   providers: [],
