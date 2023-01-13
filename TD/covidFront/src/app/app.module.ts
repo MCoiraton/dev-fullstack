@@ -14,8 +14,9 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ReactiveFormsModule } from '@angular/forms';
 import { FormsModule }        from '@angular/forms';
 import { SearchAppointmentComponent } from './search-appointment/search-appointment.component';
-import { LoginComponent } from './login/login.component';
-import { WaitingComponent } from './waiting/waiting.component';
+import { LoginComponent } from './login/login.component'
+import { MatFormFieldModule } from "@angular/material/form-field";
+
 
 @NgModule({
   declarations: [
@@ -37,6 +38,7 @@ import { WaitingComponent } from './waiting/waiting.component';
     MatProgressBarModule,
     BrowserAnimationsModule,
     ReactiveFormsModule,
+    MatFormFieldModule,
     FormsModule
   ],
   providers: [],

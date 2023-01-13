@@ -5,6 +5,7 @@ import org.polytech.covidapi.Services.UserService;
 import org.polytech.covidapi.Table.Users;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -41,5 +42,10 @@ public class LoginRest {
        newUser.setPassword(passwordEncoder.encode(newUser.getPassword()));
        userService.addUsers(newUser);
        
+    }
+
+    @PostMapping(path="login")
+    public UserDetails logUser(@RequestBody Users user){
+        return userService.findUser(user.getLogin(),passwordEncoder.encode(user.getPassword()));
     }
 }

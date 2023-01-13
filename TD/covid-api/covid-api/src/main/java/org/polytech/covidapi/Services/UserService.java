@@ -80,5 +80,19 @@ public class UserService implements UserDetailsService{
             }
         }
     
+    @Transactional(readOnly = true)
+    public UserDetails findUser(final String login, String password) 
+    throws UsernameNotFoundException {
+        log.info("Récupération de { ", login);
+
+        Optional<Users> optionalUser = loginRepository.findByLogin(login);
+        if (optionalUser.isPresent() && optionalUser.get().getPassword()==password){
+            Users user = optionalUser.get();
+            return new User(user.getLogin(), user.getPassword(), Collections.singletonList(user.getRole().getRole()).stream().map(SimpleGrantedAuthority::new).toList());
+        }
+        else {
+            throw new UsernameNotFoundException("L'utilisateur" + login + "n'existe pas ou le mdp est erroné");
+        }
+    }
     
 }
