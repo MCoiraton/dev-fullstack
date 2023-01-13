@@ -38,7 +38,11 @@ public class UserService implements UserDetailsService{
     }
 
     public Users addUsers(Users user){
-        loginRepository.save(user);
+        Optional<Users> optionalUser = loginRepository.findByLogin(user.getLogin());
+            if (!optionalUser.isPresent()){
+                loginRepository.save(user);
+            }
+            else throw new UsernameNotFoundException("L'utilisateur" + user.getLogin() + "existe deja");
         return user;
     }
 
