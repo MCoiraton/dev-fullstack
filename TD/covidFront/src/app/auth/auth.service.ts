@@ -10,7 +10,8 @@ export class AuthService {
     else return false
   }
 
-  isAuthentificatedAsAdmin() { 
+  isAuthentificatedAsAdmin() {
+    //if(localStorage.getItem('user')!=null) 
     return false;
   }
 }
