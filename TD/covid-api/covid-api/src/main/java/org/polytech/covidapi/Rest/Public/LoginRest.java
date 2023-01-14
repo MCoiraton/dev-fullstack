@@ -56,7 +56,7 @@ public class LoginRest {
         if (passwordEncoder.matches(user.getPassword(), test.getPassword())) { //On test si le hash du password de la requête est le même que le hash du password stocké
             return new ResponseEntity<>("Utilisateur connecté avec succès !", HttpStatus.OK ); //Si c'est bon OK 
         }
-        return new ResponseEntity<>("Impossible de se connecter. Nom d'utilisateur ou mot de passe incorrect", HttpStatus.FORBIDDEN ); //Sinon on renvoie un message d'erreur
+        else return new ResponseEntity<>("Impossible de se connecter. Nom d'utilisateur ou mot de passe incorrect", HttpStatus.FORBIDDEN ); //Sinon on renvoie un message d'erreur
     }
 
 

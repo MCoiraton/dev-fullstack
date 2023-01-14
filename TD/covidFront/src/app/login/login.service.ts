@@ -9,29 +9,32 @@ import { User } from '../interface/User';
 export class LoginService {
     private userSubject: BehaviorSubject<User>;
     public user: Observable<User>;
+    public response:string | undefined;
     constructor(
         private router: Router,
         private http: HttpClient
     ) {
         this.userSubject = new BehaviorSubject<User>(JSON.parse(localStorage.getItem('user')|| '{}'));
         this.user = this.userSubject.asObservable();
+        
+        
     }
 
+    
 
     public get userValue(): User {
         return this.userSubject.value;
     }
 
     login(user:any) {
-        console.log(user)
-        return this.http.post<User>(`http://localhost:8080/api/login`, user)
-            .pipe(map(user => {
+        return this.http.post(`http://localhost:8080/api/login`, user,{responseType:'text'})
+           /* (map(user => {
                 // store user details and basic auth credentials in local storage to keep user logged in between page refreshes
                 user.authdata = window.btoa(user.login + ':' + user.password);
                 localStorage.setItem('user', JSON.stringify(user));
                 this.userSubject.next(user);
                 return user;
-            }));
+            }));*/
     }
 
     logout() {

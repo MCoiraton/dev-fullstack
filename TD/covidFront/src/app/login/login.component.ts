@@ -21,7 +21,7 @@ export class LoginComponent implements OnInit {
       user: new FormControl('', [Validators.required]),
       mdp: new FormControl('', [Validators.required, Validators.pattern(
         '^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%^&*_=+-]).{8,12}$')]),
-      selectedRole: new FormControl('', [Validators.required])
+      //selectedRole: new FormControl('', [Validators.required])
     });
   }
 
@@ -45,7 +45,7 @@ export class LoginComponent implements OnInit {
     const data = {
       login: this.loginForm.value.user,
       mdp: this.loginForm.value.mdp,
-      role: this.loginForm.value.selectedRole,
+      role: "USER",
     }
     this.LoginService.signup(data).subscribe(
       response => console.log(response)
