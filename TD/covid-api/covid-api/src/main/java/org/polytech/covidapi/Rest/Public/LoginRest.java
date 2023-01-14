@@ -53,6 +53,8 @@ public class LoginRest {
     @PostMapping(path="login")
     public ResponseEntity logUser(@RequestBody Users user){
         UserDetails test = userService.loadUserByUsername(user.getLogin()); //On récupère le hash stocké dans la bdd pour le login demandé
+        log.info(test.getPassword());
+        log.info(user.getPassword());
         if (passwordEncoder.matches(user.getPassword(), test.getPassword())) { //On test si le hash du password de la requête est le même que le hash du password stocké
             return new ResponseEntity<>("Utilisateur connecté avec succès !", HttpStatus.OK ); //Si c'est bon OK 
         }

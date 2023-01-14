@@ -16,9 +16,7 @@ export class LoginService {
         private http: HttpClient
     ) {
         this.userSubject = new BehaviorSubject<User>(JSON.parse(localStorage.getItem('user')|| '{}'));
-        this.user = this.userSubject.asObservable();
-        
-        
+        this.user = this.userSubject.asObservable();      
     }
 
     
@@ -28,9 +26,8 @@ export class LoginService {
     }
 
     login(user:any) {
-        console.log(this.http.post(`http://localhost:8080/api/login`, user))
-        return this.http.post(`http://localhost:8080/api/login`, user).pipe(function(resp){
-            
+        return this.http.post<User>(`http://localhost:8080/api/login`, user).subscribe(user => {
+            console.log(user);
             user.authdata = window.btoa(user.login + ':' + user.password);
             localStorage.setItem('user', JSON.stringify(user));
             console.log(localStorage.getItem('user'))
