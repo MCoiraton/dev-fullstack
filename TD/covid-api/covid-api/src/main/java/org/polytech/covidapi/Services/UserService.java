@@ -66,7 +66,7 @@ public class UserService implements UserDetailsService{
             Users users = new Users();
             Role roleUser = new Role("MEDECIN");
             users.setLogin("user");
-            users.setPassword(passwordEncoder.encode("password"));
+            users.setPassword(passwordEncoder.encode("!Password1"));
             users.setAdmin(false);
             users.setRole(roleUser);
             this.loginRepository.save(users);
@@ -74,14 +74,14 @@ public class UserService implements UserDetailsService{
             Users admin = new Users();
             Role roleAdmin = new Role("ADMIN");
             admin.setLogin("admin");
-            admin.setPassword(passwordEncoder.encode("password"));
+            admin.setPassword(passwordEncoder.encode("!Password1"));
             admin.setAdmin(true);
             admin.setRole(roleAdmin);
             this.loginRepository.save(admin);
             Users superAdmin = new Users();
             Role roleSuperAdmin = new Role("SUPERADMIN");
             superAdmin.setLogin("superAdmin");
-            superAdmin.setPassword(passwordEncoder.encode("password"));
+            superAdmin.setPassword(passwordEncoder.encode("!Password1"));
             superAdmin.setAdmin(true);
             superAdmin.setRole(roleSuperAdmin);
             this.loginRepository.save(superAdmin);
