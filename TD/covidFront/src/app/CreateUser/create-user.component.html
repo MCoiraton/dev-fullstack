@@ -1,0 +1,36 @@
+<div>
+    <form class="form-group" [formGroup]="loginForm">
+        <mat-form-field>
+            <input matInput class="form-control bg-light" id="login" placeholder="login" formControlName="user">
+            <mat-error *ngIf="!loginForm.get('user')?.errors?.required && (loginForm.get('user')?.errors?.pattern)">
+                Please enter a valid user name
+            </mat-error>
+            <mat-error
+                *ngIf="loginForm.get('user')?.invalid && (loginForm.get('user')?.dirty || loginForm.get('user')?.touched) && loginForm.get('email')?.errors?.required">
+                user name is required
+            </mat-error>
+        </mat-form-field>
+        <mat-form-field>
+            <input matInput class="form-control bg-light" id="mdp" placeholder="mdp" formControlName="mdp" input
+                type="password">
+            <mat-error *ngIf="!loginForm.get('mdp')?.errors?.required">
+                Password length must be greater than or equal to 8 and password must contain one or more uppercase ,
+                lowercase , numeric and special characters
+            </mat-error>
+            <mat-error
+                *ngIf="loginForm.get('mdp')?.invalid && (loginForm.get('mdp')?.dirty || loginForm.get('mdp')?.touched) && loginForm.get('mdp')?.errors?.required">
+                Password is required
+            </mat-error>
+        </mat-form-field>
+        <mat-form-field>
+            <mat-select placeholder='Role' formControlName='selectedRole'>
+                <mat-option *ngFor='let role of roles' [value]='role.value'>
+                    {{role.viewValue}}
+                </mat-option>
+            </mat-select>
+
+        </mat-form-field>
+        <button [disabled]="!loginForm.valid" claas="btn btn-primary" type="button"
+            (click)="signup()">S'inscrire</button>
+    </form>
+</div>
