@@ -49,8 +49,4 @@ export class LoginService {
         localStorage.removeItem('user');
         this.router.navigate(['/login']);
     }
-
-    signup(user:any) {
-      return this.http.post<User>('http://localhost:8080/api/signup', user)
-    }
 }

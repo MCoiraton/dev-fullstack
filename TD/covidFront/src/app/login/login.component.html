@@ -21,19 +21,7 @@
                 Password is required
             </mat-error>
         </mat-form-field>
-        <!--<mat-form-field>
-            <mat-select placeholder = 'Role' formControlName = 'selectedRole'>
-                <mat-option *ngFor = 'let role of roles' [value] = 'role.value'>
-                     {{role.viewValue}}
-                </mat-option>
-            </mat-select>
-
-        </mat-form-field>
-        !-->
-
         <button [disabled]="!loginForm.valid" class="btn btn-primary" type="button" (click)="login()">Se
-            connecter</button>
-        <button [disabled]="!loginForm.valid" claas="btn btn-primary" type="button"
-            (click)="signup()">S'inscrire</button>
+            connecter</button>$
     </form>
 </div>

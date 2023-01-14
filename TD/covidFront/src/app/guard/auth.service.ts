@@ -14,5 +14,10 @@ export class AuthService {
     //if(localStorage.getItem('user')!=null) 
     return false;
   }
+
+  isAuthentificatedAsSAdmin(){
+    //if(localStorage.getItem('user')!=null)
+    return false;
+  }
 }
 

@@ -2,7 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { debounceTime, distinctUntilChanged, Observable, Subject, switchMap } from 'rxjs';
-import { AuthGuard } from '../auth/auth.guard';
+import { AuthGuard } from '../guard/auth.guard';
 import { Center } from '../interface/Center';
 import { SearchbarService } from './searchbar.service';
 

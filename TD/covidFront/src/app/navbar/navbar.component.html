@@ -1,0 +1,35 @@
+<nav class="navbar bg-primary navbar-expand-lg navbar-dark">
+    <h1 class="navbar-brand" style="margin: auto;">Vaccination Covid</h1>
+    <div class="collapse navbar-collapse" id="navbarColor01" style="margin-left: 1em ;">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item active">
+          <a class="nav-link" href="#">Recherche de Centre<span class="sr-only">(current)</span></a></li>
+        <li class="nav-item active">
+          <a class="nav-link" href="searchAppointment">Recherche de Rendez Vous<span class="sr-only">(current)</span></a>
+        </li>
+        <li class="nav-item active">
+          <a class="nav-link" href="login">Se connecter<span class="sr-only">(current)</span></a>
+        </li>
+        <li class="nav-item active">
+          <p class="nav-link"> {{showData()}} <span class="sr-only">(current)</span></p>
+        </li>
+        <li class="nav-item active">
+          <a class="nav-link" (click)="logout()" *ngIf="isLoged">Se Déconnecter <span class="sr-only">(current)</span></a>
+        </li>
+        <li class="nav-item active">
+            <a class="nav-link" href="createUser" *ngIf="isAdmin">inscrire un médecin<span class="sr-only">(current)</span></a>
+          </li>
+        <!--
+        <li class="nav-item">
+          <a class="nav-link" href="#">Features</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Pricing</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">About</a>
+        </li>
+        -->
+      </ul>
+    </div>
+</nav>
