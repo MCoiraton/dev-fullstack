@@ -9,4 +9,6 @@ import org.springframework.stereotype.Repository;
 @Repository
 public interface CentreRepository extends JpaRepository <Centre, Integer>{
     List<Centre> findByVille (String ville);
+    Centre getById(int id);
+    void delete(Centre centre);
 }

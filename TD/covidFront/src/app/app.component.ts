@@ -23,6 +23,7 @@ export class AppComponent implements OnInit{
   }
 
 data = "";
+login = JSON.parse(localStorage.getItem('user')!).login;
 word = '';
 infos = '';
 
@@ -51,6 +52,13 @@ logout() {
   // remove user from local storage to log user out
   localStorage.removeItem('user');
   this.router.navigate(['/login']);
+}
+
+test(){
+  this.http.get<any>('http://localhost:8080/public/user/' + this.login).subscribe(
+    {next: (resp) => {
+      console.log(resp);}}
+  )
 }
 
 info() {

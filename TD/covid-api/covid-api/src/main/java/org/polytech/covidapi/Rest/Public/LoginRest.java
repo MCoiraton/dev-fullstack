@@ -1,7 +1,5 @@
 package org.polytech.covidapi.Rest.Public;
 
-import javax.websocket.server.PathParam;
-
 import org.polytech.covidapi.Repository.LoginRepository;
 import org.polytech.covidapi.Services.UserService;
 import org.polytech.covidapi.Table.Users;
@@ -46,7 +44,7 @@ public class LoginRest {
     }
 
     @GetMapping(path = "/user/{login}")
-    public String getRole(@PathVariable("login") String login){
+    public Users getRole(@PathVariable("login") String login){
         return userService.getRole(login);
     }
 

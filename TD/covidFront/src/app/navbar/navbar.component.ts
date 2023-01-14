@@ -1,6 +1,8 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { BehaviorSubject, Observable } from 'rxjs';
+import { User } from '../interface/User';
 
 @Component({
   selector: 'app-navbar',
@@ -11,14 +13,19 @@ export class NavbarComponent implements OnInit {
   data = "";
   word = '';
   infos = '';
+  login = JSON.parse(localStorage.getItem('user')!).login;
   isLoged=false;
   isAdmin=true;
+  private userSubject: BehaviorSubject<User>;
+  public user: Observable<User>;
   constructor(
     private readonly http: HttpClient,
     private readonly router: Router
   ) {
       if(localStorage.getItem('user')!=null) this.isLoged=true
       if(localStorage.getItem('user')?.includes("ADMIN")) this.isAdmin=true
+      this.userSubject = new BehaviorSubject<User>(JSON.parse(localStorage.getItem('user')|| '{}'));
+      this.user = this.userSubject.asObservable(); 
   }
 
   ngOnInit(): void {
@@ -33,6 +40,14 @@ export class NavbarComponent implements OnInit {
 
     return this.data;
   }
+
+  test(){
+    this.http.get<any>('http://localhost:8080/public/user/' + this.login).subscribe((user) => {
+       console.log(user.role.role)})
+}
+ 
+    
+
 
   logout() {
     // remove user from local storage to log user out

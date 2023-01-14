@@ -1,14 +1,9 @@
 package org.polytech.covidapi.Rest.Admin;
-import java.util.List;
-import java.util.Optional;
 
-import org.polytech.covidapi.Repository.AdminRepository;
 import org.polytech.covidapi.Repository.RendezVousRepository;
 import org.polytech.covidapi.Services.AdminService;
 import org.polytech.covidapi.Services.RendezVousService;
 import org.polytech.covidapi.Services.UserService;
-import org.polytech.covidapi.Table.Admin;
-import org.polytech.covidapi.Table.Centre;
 import org.polytech.covidapi.Table.RendezVous;
 import org.polytech.covidapi.Table.Users;
 import org.springframework.beans.factory.annotation.Autowired;

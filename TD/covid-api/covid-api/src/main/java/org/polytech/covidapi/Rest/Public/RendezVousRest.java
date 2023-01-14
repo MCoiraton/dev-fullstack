@@ -25,7 +25,6 @@ import io.github.bucket4j.ConsumptionProbe;
 import io.github.bucket4j.Refill;
 import io.micrometer.core.instrument.MeterRegistry;
 import io.micrometer.core.instrument.Metrics;
-import io.micrometer.core.instrument.Timer;
 
 @RestController
 @RequestMapping("/public")
@@ -71,7 +70,7 @@ public class RendezVousRest {
     public List<RendezVous> getByCentre(Centre centerId){
         return rendezVousService.getByCentre(centerId);
     }
-    
+
     @CrossOrigin(exposedHeaders = {remaining, retryAfter})
     @PostMapping(path = "/appointment")
     public ResponseEntity newRendezVous(@RequestBody RendezVous newRendezVous){

@@ -27,7 +27,7 @@ export class LoginService {
 
     login(user:any) {
         return this.http.post<User>(`http://localhost:8080/public/login`, user).subscribe((user) => {
-            //console.log(user);
+            
             user.authdata = window.btoa(user.login + ':' + user.password);
             localStorage.setItem('user', JSON.stringify(user));
             console.log(localStorage.getItem('user'))
@@ -35,8 +35,9 @@ export class LoginService {
         },
         (error) => {
             if (error.status == 200){
+            console.log(user);
             console.log(error.status);
-            user.authdata = window.btoa(user.login + ':' + user.password);
+            user.authdata = window.btoa(user.login + ':' + user.password + ':' + user.roles);
             localStorage.setItem('user', JSON.stringify(user));
             console.log(localStorage.getItem('user'))
             return user;}

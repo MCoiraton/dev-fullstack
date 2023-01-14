@@ -27,4 +27,12 @@ public class CentreService {
         centreRepository.findByVille(ville).forEach(centres::add);;
         return centres;
     }
+
+    public Centre getById(int id) {
+        return centreRepository.findById(id).get();
+    }
+
+    public void delete(Centre centre){
+        centreRepository.delete(centre);
+    }
 }

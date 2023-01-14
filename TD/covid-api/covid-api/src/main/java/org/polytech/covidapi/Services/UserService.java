@@ -1,7 +1,6 @@
 package org.polytech.covidapi.Services;
 
 import java.util.Collections;
-import java.util.List;
 import java.util.Optional;
 
 import javax.annotation.PostConstruct;
@@ -11,8 +10,6 @@ import org.polytech.covidapi.Table.Role;
 import org.polytech.covidapi.Table.Users;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.annotation.Bean;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.User;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -21,8 +18,6 @@ import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
 
 @Service
 public class UserService implements UserDetailsService{
@@ -31,7 +26,7 @@ public class UserService implements UserDetailsService{
     private final LoginRepository loginRepository;
     public final PasswordEncoder passwordEncoder;
     
-    @Autowired
+
     public UserService(final LoginRepository loginRepository, PasswordEncoder passwordEncoder){
         this.loginRepository = loginRepository;
         this.passwordEncoder = passwordEncoder;
@@ -55,9 +50,9 @@ public class UserService implements UserDetailsService{
         }
     }
 
-    public String getRole(String login){
+    public Users getRole(String login){
         log.info(login);
-        return loginRepository.findByLogin(login).get().getRole().getRole();
+        return loginRepository.findByLogin(login).get();
     }
 
     @PostConstruct
