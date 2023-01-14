@@ -31,7 +31,7 @@ export class LoginComponent implements OnInit {
   login() {
     const data = {
       login: this.loginForm.value.user,
-      mdp: this.loginForm.value.mdp,
+      password: this.loginForm.value.mdp,
     }
     if (this.loginForm.valid) {
       this.LoginService.login(data)
@@ -42,7 +42,7 @@ export class LoginComponent implements OnInit {
   signup() {
     const data = {
       login: this.loginForm.value.user,
-      mdp: this.loginForm.value.mdp,
+      password: this.loginForm.value.mdp,
       role: "USER",
     }
     this.LoginService.signup(data).subscribe(
