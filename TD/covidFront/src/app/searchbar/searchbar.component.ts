@@ -1,6 +1,8 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { debounceTime, distinctUntilChanged, Observable, Subject, switchMap } from 'rxjs';
+import { AuthGuard } from '../auth/auth.guard';
 import { Center } from '../interface/Center';
 import { SearchbarService } from './searchbar.service';
 
@@ -15,8 +17,9 @@ export class SearchbarComponent implements OnInit {
   centres:Center [] = [];
   centres$!: Observable<Center[]>;
   private searchTerms = new Subject<string>();
-  constructor(private searchbarService : SearchbarService){
-
+  static router: any;
+  constructor(private searchbarService : SearchbarService , private router:Router){
+    
   }
 
   ngOnInit(): void {
@@ -35,5 +38,12 @@ export class SearchbarComponent implements OnInit {
 
   search(term : string): void {
     this.searchTerms.next(term);
+  }
+
+  onclick(centre:Center){
+    if(localStorage.getItem('user')?.includes("ADMIN")){
+      this.router.navigate(['admin/centerManagement'])
+    }
+    else this.router.navigate(['/appointment/', centre.centreId],{state:{id: centre.centreId, nom: centre.nom, adresse: centre.adresse}}) 
   }
 }
