@@ -47,11 +47,21 @@ public class UserService implements UserDetailsService{
         return user;
     }
 
+    public Users getMedecin(int id){
+        if (loginRepository.findById(id).get().getRole().getRole().equals("MEDECIN")){
+        return loginRepository.findById(id).get();}
+        else {
+            return null;
+        }
+        //return loginRepository.findById(id).get();
+    }
+
     @PostConstruct
     public void createUserDefault(){
         if(!loginRepository.findByLogin("user").isPresent() && 
             !loginRepository.findByLogin("admin").isPresent() &&
             !loginRepository.findByLogin("superAdmin").isPresent()){
+
             log.info("Création de l'utilisateur par défaut");
             Users users = new Users();
             Role roleUser = new Role("MEDECIN");

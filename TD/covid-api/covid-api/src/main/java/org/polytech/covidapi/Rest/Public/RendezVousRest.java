@@ -71,6 +71,7 @@ public class RendezVousRest {
     public List<RendezVous> getByCentre(Centre centerId){
         return rendezVousService.getByCentre(centerId);
     }
+    
     @CrossOrigin(exposedHeaders = {remaining, retryAfter})
     @PostMapping(path = "/appointment")
     public ResponseEntity newRendezVous(@RequestBody RendezVous newRendezVous){
