@@ -26,12 +26,20 @@ export class LoginService {
     }
 
     login(user:any) {
-        return this.http.post<User>(`http://localhost:8080/api/login`, user).subscribe(user => {
+        return this.http.post<User>(`http://localhost:8080/api/login`, user).subscribe((user) => {
             console.log(user);
             user.authdata = window.btoa(user.login + ':' + user.password);
             localStorage.setItem('user', JSON.stringify(user));
             console.log(localStorage.getItem('user'))
             return user;
+        },
+        (error) => {
+            if (error.status == 200){
+            console.log(error.status);
+            user.authdata = window.btoa(user.login + ':' + user.password);
+            localStorage.setItem('user', JSON.stringify(user));
+            console.log(localStorage.getItem('user'))
+            return user;}
         })
            /* (map(user => {
                 // store user details and basic auth credentials in local storage to keep user logged in between page refreshes
