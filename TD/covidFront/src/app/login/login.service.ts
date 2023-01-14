@@ -27,19 +27,18 @@ export class LoginService {
 
     login(user:any) {
         return this.http.post<User>(`http://localhost:8080/public/login`, user).subscribe((user) => {
-            //console.log(user);
-            user.authdata = window.btoa(user.login + ':' + user.password);
+            
+        },
+        (error) => {
+            if (error.status == 200){//error 200 = bon login et mdp
+            console.log(error.status);
             localStorage.setItem('user', JSON.stringify(user));
             console.log(localStorage.getItem('user'))
             this.router.navigate(['/search'])
-        },
-        (error) => {
-            if (error.status == 200){
-            console.log(error.status);
-            user.authdata = window.btoa(user.login + ':' + user.password);
-            localStorage.setItem('user', JSON.stringify(user));
-            console.log(localStorage.getItem('user'))
             return user;}
+            else {
+                console.log("mauvais utilisateur ou mdp")
+            }
         })
        
     }

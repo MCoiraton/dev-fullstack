@@ -1,5 +1,5 @@
-<div>
-    <form class="form-group" [formGroup]="loginForm">
+<div class="card bg-light" style="display: flex;flex-direction: column; width: fit-content; margin: auto; padding:2em; "  >
+    <form class="form-group" [formGroup]="loginForm" style="margin-bottom: 5em;">
         <mat-form-field>
             <input matInput class="form-control bg-light" id="login" placeholder="login" formControlName="user">
             <mat-error *ngIf="!loginForm.get('user')?.errors?.required && (loginForm.get('user')?.errors?.pattern)">
@@ -21,7 +21,8 @@
                 Password is required
             </mat-error>
         </mat-form-field>
-        <button [disabled]="!loginForm.valid" class="btn btn-primary" type="button" (click)="login()">Se
-            connecter</button>$
+        
     </form>
+    <button [disabled]="!loginForm.valid" class="btn btn-primary" type="button" (click)="login()">Se
+        connecter</button>
 </div>
