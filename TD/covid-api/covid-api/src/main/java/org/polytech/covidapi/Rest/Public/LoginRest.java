@@ -1,5 +1,7 @@
 package org.polytech.covidapi.Rest.Public;
 
+import javax.websocket.server.PathParam;
+
 import org.polytech.covidapi.Repository.LoginRepository;
 import org.polytech.covidapi.Services.UserService;
 import org.polytech.covidapi.Table.Users;
@@ -12,6 +14,7 @@ import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -40,6 +43,11 @@ public class LoginRest {
     @GetMapping()
     public ResponseEntity<Void> login(){
         return ResponseEntity.ok().build();
+    }
+
+    @GetMapping(path = "/user/{login}")
+    public String getRole(@PathVariable("login") String login){
+        return userService.getRole(login);
     }
 
     @PostMapping(path = "signup")

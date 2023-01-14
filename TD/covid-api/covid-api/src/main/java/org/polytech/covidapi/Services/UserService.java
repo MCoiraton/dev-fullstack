@@ -53,7 +53,11 @@ public class UserService implements UserDetailsService{
         else {
             return null;
         }
-        //return loginRepository.findById(id).get();
+    }
+
+    public String getRole(String login){
+        log.info(login);
+        return loginRepository.findByLogin(login).get().getRole().getRole();
     }
 
     @PostConstruct
