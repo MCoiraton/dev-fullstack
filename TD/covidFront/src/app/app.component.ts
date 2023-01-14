@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Route, Router } from '@angular/router';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-root',
@@ -10,13 +10,17 @@ import { Route, Router } from '@angular/router';
 export class AppComponent {
 [x: string]: any;
   title = 'Vaccination Covid';
-
+  
   constructor(
     private readonly http: HttpClient, 
     private readonly router: Router
-    ) {}
+    ) {
 
+    }
 
+   
+
+data = JSON.parse(localStorage.getItem('user')!);
 word = '';
 infos = '';
 
