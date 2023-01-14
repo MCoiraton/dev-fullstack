@@ -10,8 +10,8 @@ import { Appointment } from "../interface/Appointment";
 })
 export class SearchAppointmentService{
  
-    private url = 'http://localhost:8080/rdvs'; //url pour le getRdvs
-    private urlSearch = 'http://localhost:8080/rdvs' //url pour le search qui permet d'ajouter le paramètre de la ville
+    private url = 'http://localhost:8080/api/rdvs'; //url pour le getRdvs
+    private urlSearch = 'http://localhost:8080/api/rdvs' //url pour le search qui permet d'ajouter le paramètre de la ville
 
     constructor(
         private http: HttpClient){ 
