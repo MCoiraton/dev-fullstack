@@ -34,9 +34,7 @@ export class LoginComponent implements OnInit {
       mdp: this.loginForm.value.mdp,
     }
     if (this.loginForm.valid) {
-      this.LoginService.login(data).subscribe(
-        response => console.log(response)
-      );
+      this.LoginService.login(data)
     }
     else console.log("erreur")
   }

@@ -27,7 +27,12 @@ export class LoginService {
     }
 
     login(user:any) {
-        return this.http.post(`http://localhost:8080/api/login`, user,{responseType:'text'})
+        return this.http.post(`http://localhost:8080/api/login`, user,{responseType:'text'}).pipe(function(resp){
+            user.authdata = window.btoa(user.login + ':' + user.password);
+            localStorage.setItem('user', JSON.stringify(user));
+            console.log(localStorage.getItem('user'))
+            return user;
+        })
            /* (map(user => {
                 // store user details and basic auth credentials in local storage to keep user logged in between page refreshes
                 user.authdata = window.btoa(user.login + ':' + user.password);

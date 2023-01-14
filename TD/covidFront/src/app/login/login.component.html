@@ -11,7 +11,7 @@
             </mat-error>
         </mat-form-field>
         <mat-form-field>
-            <input matInput class="form-control bg-light" id="mdp" placeholder="mdp" formControlName="mdp">
+            <input matInput class="form-control bg-light" id="mdp" placeholder="mdp" formControlName="mdp" input type="password">
             <mat-error *ngIf="!loginForm.get('mdp')?.errors?.required">
                 Password length must be greater than or equal to 8 and password must contain one or more uppercase ,
                 lowercase , numeric and special characters
