@@ -59,6 +59,7 @@ export class AppointmentComponent implements OnInit {
       }
     }
 
+    //.subscribe est OBLIGATOIRE car un observable doit l'avoir pour pouvoir être utilisé (j'ai perdu 2h de ma vie)
     //Utilisation de l'exemple vu en cours pour la gestion de la file d'attente après 10 requêtes en 1min. 
     let temps: any;
     this.http.post<any>(this.urlPost, data)
@@ -80,7 +81,7 @@ export class AppointmentComponent implements OnInit {
       this.router.navigate(['/waiting', temps]);
     }
   });
-    //.subscribe est OBLIGATOIRE car un observable doit l'avoir pour pouvoir être utilisé (j'ai perdu 2h de ma vie)
+    
     
 
 

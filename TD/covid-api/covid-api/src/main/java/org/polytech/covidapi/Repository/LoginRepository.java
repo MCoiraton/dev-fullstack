@@ -10,4 +10,5 @@ import org.springframework.stereotype.Repository;
 public interface LoginRepository extends JpaRepository<Users, Integer> {
     List<Users> findAll();
     Optional<Users> findByLogin(String login);
+
 }

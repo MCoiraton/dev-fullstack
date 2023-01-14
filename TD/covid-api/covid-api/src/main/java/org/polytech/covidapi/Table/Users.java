@@ -33,9 +33,11 @@ public class Users {
     private Role roles;
 
     public Users(){
+        Role roles = new Role("USER");
         login = "";
         password = "";
         admin = false;
+       
     }
 
     public Users(String login, String password, boolean admin){
