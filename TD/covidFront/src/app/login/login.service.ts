@@ -26,7 +26,7 @@ export class LoginService {
     }
 
     login(user:any) {
-        return this.http.post<User>(`http://localhost:8080/api/login`, user).subscribe((user) => {
+        return this.http.post<User>(`http://localhost:8080/public/login`, user).subscribe((user) => {
             //console.log(user);
             user.authdata = window.btoa(user.login + ':' + user.password);
             localStorage.setItem('user', JSON.stringify(user));
@@ -48,5 +48,9 @@ export class LoginService {
         // remove user from local storage to log user out
         localStorage.removeItem('user');
         this.router.navigate(['/login']);
+    }
+
+    signup(user:any) {
+      return this.http.post<User>('http://localhost:8080/public/signup', user)
     }
 }

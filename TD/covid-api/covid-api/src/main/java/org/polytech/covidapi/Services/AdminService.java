@@ -5,6 +5,7 @@ import java.util.List;
 import org.polytech.covidapi.Repository.AdminRepository;
 import org.polytech.covidapi.Table.Admin;
 import org.polytech.covidapi.Table.Centre;
+import org.polytech.covidapi.Table.RendezVous;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -28,5 +29,9 @@ public class AdminService {
         List<Admin>admins = new ArrayList<>();
         adminRepository.findByCentre(centre).forEach(admins::add);
         return admins;
+    }
+
+    public List<RendezVous> deleteRendezVous(){
+        return null;
     }
 }

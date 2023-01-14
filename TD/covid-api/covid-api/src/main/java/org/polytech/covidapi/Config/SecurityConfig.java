@@ -30,8 +30,9 @@ public class SecurityConfig {
     public SecurityFilterChain filterChain(HttpSecurity http, UserDetailsService userDetailsService) throws Exception{
         http
         .authorizeHttpRequests((authz) -> authz
-        .antMatchers("/api/**").permitAll()
-        .antMatchers("/admin/**").hasAuthority("ADMIN"))
+        .antMatchers("/public/**").permitAll()
+        .antMatchers("/admin/**").hasAuthority("ADMIN")
+        .antMatchers("/medecin/**").hasAuthority("MEDECIN"))
         .httpBasic(Customizer.withDefaults())
             .cors().disable()
             .csrf().disable()

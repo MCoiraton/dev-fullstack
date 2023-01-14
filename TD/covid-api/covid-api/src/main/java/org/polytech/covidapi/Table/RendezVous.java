@@ -23,6 +23,7 @@ public class RendezVous {
     private String firstName;
     private String lastName;
     private Date appointmentDate;
+    private Boolean vaccinated = false;
     
     @ManyToOne
     @JoinColumn(name="centre_id")
@@ -84,6 +85,12 @@ public class RendezVous {
         this.centre = centre;
     }
 
- 
+    public Boolean getVaccinated(){
+        return vaccinated;
+    }
+
+    public void setVaccinated(Boolean vaccinated){
+        this.vaccinated = vaccinated;
+    }
 
 }

@@ -25,7 +25,7 @@ export class AppointmentComponent implements OnInit {
   word = '';
   infos = '';
   httpClient: any;
-  private urlPost = 'http://localhost:8080/api/appointment'
+  private urlPost = 'http://localhost:8080/public/appointment'
 
   constructor(private router: Router, private activatedRoute: ActivatedRoute,
     private AppointmentService: AppointmentService,
