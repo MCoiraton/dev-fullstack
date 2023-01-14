@@ -50,7 +50,5 @@ export class LoginService {
         this.router.navigate(['/login']);
     }
 
-    signup(user:any) {
-      return this.http.post<User>('http://localhost:8080/public/signup', user)
-    }
+    
 }
