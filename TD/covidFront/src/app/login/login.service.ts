@@ -27,11 +27,11 @@ export class LoginService {
 
     login(user:any) {
         return this.http.post<User>(`http://localhost:8080/api/login`, user).subscribe((user) => {
-            console.log(user);
+            //console.log(user);
             user.authdata = window.btoa(user.login + ':' + user.password);
             localStorage.setItem('user', JSON.stringify(user));
             console.log(localStorage.getItem('user'))
-            return user;
+            this.router.navigate(['/search'])
         },
         (error) => {
             if (error.status == 200){
@@ -52,9 +52,5 @@ export class LoginService {
 
     signup(user:any) {
       return this.http.post<User>('http://localhost:8080/api/signup', user)
-    }
-
-    redirect(){
-        this.router.navigate(['/search'])
     }
 }

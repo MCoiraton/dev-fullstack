@@ -35,7 +35,6 @@ export class LoginComponent implements OnInit {
     }
     if (this.loginForm.valid) {
       this.LoginService.login(data)
-        if(localStorage.getItem('user')!=null) this.LoginService.redirect()
     }
     else console.log("erreur")
   }
