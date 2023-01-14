@@ -11,7 +11,10 @@
           <a class="nav-link" href="login">Se connecter/S'inscrire <span class="sr-only">(current)</span></a>
         </li>
         <li class="nav-item active">
-          <a>{{data.login}} <span class="sr-only">(current)</span></a>
+          <a> {{showData()}} <span class="sr-only">(current)</span></a>
+        </li>
+        <li class="nav-item active">
+          <button class="nav-link" (click)="logout()" >Se Déconnecter <span class="sr-only">(current)</span></button>
         </li>
         <!--
         <li class="nav-item">
