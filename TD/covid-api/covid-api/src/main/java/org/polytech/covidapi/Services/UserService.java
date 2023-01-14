@@ -12,6 +12,7 @@ import org.polytech.covidapi.Table.Users;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Bean;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.User;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -70,7 +71,7 @@ public class UserService implements UserDetailsService{
     /* */
     @Override
     @Transactional(readOnly = true)
-    public UserDetails loadUserByUsername(final String login) 
+    public UserDetails loadUserByUsername(String login) 
         throws UsernameNotFoundException {
             log.info("Récupération de { ", login);
 
@@ -90,7 +91,7 @@ public class UserService implements UserDetailsService{
         log.info("Récupération de { ", login);
 
         Optional<Users> optionalUser = loginRepository.findByLogin(login);
-        if (optionalUser.isPresent() && optionalUser.get().getPassword()==password){
+        if (optionalUser.isPresent() && optionalUser.get().getPassword()==passwordEncoder.encode(password)){
             Users user = optionalUser.get();
             return new User(user.getLogin(), user.getPassword(), Collections.singletonList(user.getRole().getRole()).stream().map(SimpleGrantedAuthority::new).toList());
         }
@@ -98,5 +99,5 @@ public class UserService implements UserDetailsService{
             throw new UsernameNotFoundException("L'utilisateur" + login + "n'existe pas ou le mdp est erroné");
         }
     }
-    
+
 }

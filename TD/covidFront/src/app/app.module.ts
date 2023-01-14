@@ -17,6 +17,7 @@ import { SearchAppointmentComponent } from './search-appointment/search-appointm
 import { LoginComponent } from './login/login.component'
 import { MatFormFieldModule } from "@angular/material/form-field";
 import { WaitingComponent } from './waiting/waiting.component';
+import { MatSelectModule } from '@angular/material/select';
 
 
 @NgModule({
@@ -40,7 +41,8 @@ import { WaitingComponent } from './waiting/waiting.component';
     BrowserAnimationsModule,
     ReactiveFormsModule,
     MatFormFieldModule,
-    FormsModule
+    FormsModule,
+    MatSelectModule
   ],
   providers: [],
   bootstrap: [AppComponent]

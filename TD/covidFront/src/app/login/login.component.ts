@@ -9,14 +9,19 @@ import { LoginService } from './login.service';
 })
 export class LoginComponent implements OnInit {
   loginForm: FormGroup | any;
+  roles = [
+    {value: 'ADMIN', viewValue: 'ADMIN'},
+    {value: 'USER', viewValue: 'USER'}
+  ];
 
+  
 
   constructor(@Inject(LoginService) private LoginService: LoginService) {
     this.loginForm = new FormGroup({
       user: new FormControl('', [Validators.required]),
       mdp: new FormControl('', [Validators.required, Validators.pattern(
-        '^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%^&*_=+-]).{8,12}$'
-      )])
+        '^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%^&*_=+-]).{8,12}$')]),
+      selectedRole: new FormControl('', [Validators.required])
     });
   }
 
@@ -40,7 +45,7 @@ export class LoginComponent implements OnInit {
     const data = {
       login: this.loginForm.value.user,
       mdp: this.loginForm.value.mdp,
-      role: "",
+      role: this.loginForm.value.selectedRole,
     }
     this.LoginService.signup(data).subscribe(
       response => console.log(response)

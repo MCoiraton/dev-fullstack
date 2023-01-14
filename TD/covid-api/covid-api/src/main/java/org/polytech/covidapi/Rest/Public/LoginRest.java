@@ -3,8 +3,12 @@ package org.polytech.covidapi.Rest.Public;
 import org.polytech.covidapi.Repository.LoginRepository;
 import org.polytech.covidapi.Services.UserService;
 import org.polytech.covidapi.Table.Users;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.config.web.server.ServerHttpSecurity.HttpsRedirectSpec;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.web.bind.annotation.CrossOrigin;
@@ -19,6 +23,8 @@ import org.springframework.web.bind.annotation.RestController;
 @CrossOrigin
 @RequestMapping("/api")
 public class LoginRest {
+
+   Logger log = LoggerFactory.getLogger(UserService.class);
 
     @Autowired
     private final LoginRepository repository;
@@ -45,7 +51,13 @@ public class LoginRest {
     }
 
     @PostMapping(path="login")
-    public UserDetails logUser(@RequestBody Users user){
-        return userService.findUser(user.getLogin(),passwordEncoder.encode(user.getPassword()));
+    public ResponseEntity logUser(@RequestBody Users user){
+        UserDetails test = userService.loadUserByUsername(user.getLogin()); //On récupère le hash stocké dans la bdd pour le login demandé
+        if (passwordEncoder.matches(user.getPassword(), test.getPassword())) { //On test si le hash du password de la requête est le même que le hash du password stocké
+            return new ResponseEntity<>("Utilisateur connecté avec succès !", HttpStatus.OK ); //Si c'est bon OK 
+        }
+        return new ResponseEntity<>("Impossible de se connecter. Nom d'utilisateur ou mot de passe incorrect", HttpStatus.FORBIDDEN ); //Sinon on renvoie un message d'erreur
     }
+
+
 }
