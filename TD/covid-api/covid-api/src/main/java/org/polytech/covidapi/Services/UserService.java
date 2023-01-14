@@ -49,10 +49,12 @@ public class UserService implements UserDetailsService{
 
     @PostConstruct
     public void createUserDefault(){
-        if(!loginRepository.findByLogin("user").isPresent() && !loginRepository.findByLogin("admin").isPresent()){
+        if(!loginRepository.findByLogin("user").isPresent() && 
+            !loginRepository.findByLogin("admin").isPresent() &&
+            !loginRepository.findByLogin("superAdmin").isPresent()){
             log.info("Création de l'utilisateur par défaut");
             Users users = new Users();
-            Role roleUser = new Role("USER");
+            Role roleUser = new Role("MEDECIN");
             users.setLogin("user");
             users.setPassword(passwordEncoder.encode("password"));
             users.setAdmin(false);
@@ -66,6 +68,14 @@ public class UserService implements UserDetailsService{
             admin.setAdmin(true);
             admin.setRole(roleAdmin);
             this.loginRepository.save(admin);
+            Users superAdmin = new Users();
+            Role roleSuperAdmin = new Role("SUPERADMIN");
+            superAdmin.setLogin("superAdmin");
+            superAdmin.setPassword(passwordEncoder.encode("password"));
+            superAdmin.setAdmin(true);
+            superAdmin.setRole(roleSuperAdmin);
+            this.loginRepository.save(superAdmin);
+
         }
     }
     /* */

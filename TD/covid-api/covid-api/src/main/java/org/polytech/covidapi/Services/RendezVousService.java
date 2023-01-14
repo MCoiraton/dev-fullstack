@@ -34,8 +34,22 @@ public class RendezVousService {
         return rendezVous;
     }
 
+    
+    public List<RendezVous> getByName(String first_name){
+        return rendezVousRepository.findByFirstName(first_name);
+        
+    }
+
     public List<RendezVous> getByEmail(String email){
         return rendezVousRepository.findByMail(email);
         
+    }
+
+    public RendezVous getById(int id) {
+        return rendezVousRepository.findById(id).get();
+    }
+
+    public void delete(RendezVous rendezvous){
+        rendezVousRepository.delete(rendezvous);
     }
 }

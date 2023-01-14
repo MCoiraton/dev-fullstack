@@ -28,7 +28,7 @@ import io.micrometer.core.instrument.Metrics;
 import io.micrometer.core.instrument.Timer;
 
 @RestController
-@RequestMapping("/api")
+@RequestMapping("/public")
 public class RendezVousRest {
     @Autowired
     private RendezVousService rendezVousService;
@@ -40,7 +40,7 @@ public class RendezVousRest {
     Bandwidth limit = Bandwidth.classic(10, refill);
     Bucket bucket = Bucket.builder().addLimit(limit).build();
 
-    final String remainning = "X-Rate-Limit-Remaining";
+    final String remaining = "X-Rate-Limit-Remaining";
     final String retryAfter = "X-Rate-Limit-Retry-After-Seconds";
 
     RendezVousRest(RendezVousRepository repository, MeterRegistry registry){
@@ -71,7 +71,7 @@ public class RendezVousRest {
     public List<RendezVous> getByCentre(Centre centerId){
         return rendezVousService.getByCentre(centerId);
     }
-    @CrossOrigin(exposedHeaders = {remainning, retryAfter})
+    @CrossOrigin(exposedHeaders = {remaining, retryAfter})
     @PostMapping(path = "/appointment")
     public ResponseEntity newRendezVous(@RequestBody RendezVous newRendezVous){
         HttpHeaders headers = new HttpHeaders();

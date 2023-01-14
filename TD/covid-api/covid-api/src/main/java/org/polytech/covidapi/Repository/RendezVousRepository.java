@@ -1,5 +1,6 @@
 package org.polytech.covidapi.Repository;
 import java.util.List;
+import java.util.Optional;
 
 import org.polytech.covidapi.Table.Centre;
 import org.polytech.covidapi.Table.RendezVous;
@@ -14,4 +15,7 @@ public interface RendezVousRepository extends JpaRepository <RendezVous, Integer
     //List<RendezVous> findByName (@Param("name") String name);
     List<RendezVous> findByCentre (Centre centre);
     List<RendezVous> findByMail (@Param("mail") String mail);
+    List<RendezVous> findByFirstName (@Param("first_name") String first_name);
+    void delete(RendezVous rendezVous);
+    Object save(Optional<RendezVous> currentRendezVous);
 }

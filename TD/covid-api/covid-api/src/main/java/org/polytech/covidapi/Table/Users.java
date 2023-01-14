@@ -32,8 +32,12 @@ public class Users {
     @JoinColumn(name = "role")
     private Role roles;
 
+    @ManyToOne
+    @JoinColumn(name="centre_id")
+    private Centre centre;
+
     public Users(){
-        Role roles = new Role("USER");
+        Role roles = new Role("MEDECIN");
         login = "";
         password = "";
         admin = false;
@@ -84,6 +88,14 @@ public class Users {
 
     public void setRole(final Role role){
         this.roles = role;
+    }
+
+    public Centre getCentre() {
+        return centre;
+    }
+
+    public void setCentre(Centre centre) {
+        this.centre = centre;
     }
 
 }

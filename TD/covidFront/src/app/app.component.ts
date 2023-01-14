@@ -55,7 +55,7 @@ logout() {
 
 info() {
   let temps: any;
-  this.http.get<any>('http://localhost:8080/api/appointment', {observe: 'response'})
+  this.http.get<any>('http://localhost:8080/public/appointment', {observe: 'response'})
   .subscribe({
     next: (resp) => {
     console.log(resp);
