@@ -10,6 +10,7 @@ export class LoginService {
     private userSubject: BehaviorSubject<User>;
     public user: Observable<User>;
     public response:string | undefined;
+    static router: any;
     constructor(
         private router: Router,
         private http: HttpClient

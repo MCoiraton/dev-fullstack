@@ -1,22 +1,28 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Route, Router } from '@angular/router';
+import { Router } from '@angular/router';
+import { LoginService } from './login/login.service';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
-export class AppComponent {
+export class AppComponent implements OnInit{
 [x: string]: any;
   title = 'Vaccination Covid';
-
+  
   constructor(
     private readonly http: HttpClient, 
     private readonly router: Router
-    ) {}
+    ) {
 
+    }
+  ngOnInit(): void {
+    
+  }
 
+data = "";
 word = '';
 infos = '';
 
@@ -30,6 +36,22 @@ infos = '';
   });
 }*/
 
+showData(){
+ if (JSON.parse(localStorage.getItem('user')!)){
+  this.data = "Connecté en tant que : " + JSON.parse(localStorage.getItem('user')!).login;
+ }
+ else{
+  this.data = ""
+ }
+
+ return this.data;
+}
+
+logout() {
+  // remove user from local storage to log user out
+  localStorage.removeItem('user');
+  this.router.navigate(['/login']);
+}
 
 info() {
   let temps: any;
