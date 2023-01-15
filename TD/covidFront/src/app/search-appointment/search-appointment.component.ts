@@ -15,9 +15,11 @@ export class SearchAppointmentComponent implements OnInit {
 
   appointment:Appointment [] = [];
   appointments$!: Observable<Appointment[]>;
+  httpClient: any;
   private searchTerms = new Subject<string>();
 
-  constructor(private SearchAppointmentService : SearchAppointmentService){
+  constructor(private SearchAppointmentService : SearchAppointmentService,
+    private readonly http: HttpClient){
 
   }
 
@@ -40,6 +42,10 @@ export class SearchAppointmentComponent implements OnInit {
   }
 
   vaccinate(idRdv:number){
-   this.SearchAppointmentService.vaccinate(idRdv);
+    const data = {
+      vaccinated: true
+    }
+    this.http.put<Appointment>(`http://localhost:8080/medecin/appointment/${idRdv}`, data)
+   .subscribe();
   }
 }

@@ -33,10 +33,10 @@ export class SearchAppointmentService{
         
     }
 
-    vaccinate(idRdv:number){
-        console.log(idRdv)
-        this.http.put<any>(`http://localhost:8080/medecin/appointment/centre/${idRdv}`,true).subscribe()
-        console.log("vaccinated")
+    vaccinatefdsf(idRdv:number): Observable<Appointment>{
+        console.log(idRdv);
+        console.log("vaccinated");
+        return this.http.put<Appointment>(`http://localhost:8080/medecin/appointment/${idRdv}`, true);
     }
     
  
