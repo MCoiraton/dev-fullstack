@@ -1,9 +1,13 @@
 package org.polytech.covidapi.Rest.Admin;
 
+import java.util.List;
+
 import org.polytech.covidapi.Repository.RendezVousRepository;
 import org.polytech.covidapi.Services.AdminService;
+import org.polytech.covidapi.Services.CentreService;
 import org.polytech.covidapi.Services.RendezVousService;
 import org.polytech.covidapi.Services.UserService;
+import org.polytech.covidapi.Table.Centre;
 import org.polytech.covidapi.Table.RendezVous;
 import org.polytech.covidapi.Table.Users;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -26,16 +30,19 @@ public class AdminRest {
     @Autowired
     private AdminService adminService;
     private final RendezVousService rendezVousService;
+    private final CentreService centreService;
     private final RendezVousRepository repository;
     private final PasswordEncoder passwordEncoder;
     private final UserService userService;
 
     
-    public AdminRest(RendezVousService rendezVousService, RendezVousRepository repository, PasswordEncoder passwordEncoder, UserService userService){
+    public AdminRest(RendezVousService rendezVousService, RendezVousRepository repository, 
+    PasswordEncoder passwordEncoder, UserService userService, CentreService centreService){
         this.rendezVousService = rendezVousService;
         this.repository = repository;
         this.passwordEncoder = passwordEncoder;
         this.userService = userService;
+        this.centreService = centreService;
     }
 
     //PARTIE RESERVATION
@@ -52,6 +59,11 @@ public class AdminRest {
         repository.delete(rdv);
         return ResponseEntity.ok(rdv);
    } 
+
+   @GetMapping(path = "/appointment/centre/{centre_id}")
+   public List<RendezVous> getAppointmentByCenter(@PathVariable("centre_id") int centre_id){
+        return rendezVousService.getByCentreId(centre_id);
+   }
 
    //PARTIE MEDECIN
 

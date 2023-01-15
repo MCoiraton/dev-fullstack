@@ -2,9 +2,12 @@ package org.polytech.covidapi.Services;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.polytech.covidapi.Repository.CentreRepository;
 import org.polytech.covidapi.Repository.RendezVousRepository;
 import org.polytech.covidapi.Table.Centre;
 import org.polytech.covidapi.Table.RendezVous;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -13,6 +16,8 @@ import org.springframework.stereotype.Service;
 public class RendezVousService {
     @Autowired 
     private RendezVousRepository rendezVousRepository;
+    private CentreRepository centreRepository;
+    private static Logger log = LoggerFactory.getLogger(RendezVousService.class);
 
     public RendezVous getRendezVous(int id){
         return rendezVousRepository.getReferenceById(id);
@@ -34,6 +39,14 @@ public class RendezVousService {
         return rendezVous;
     }
 
+    public List<RendezVous> getByCentreId(int id){
+        List<RendezVous> test =  rendezVousRepository.findAllByCentre_id(id);
+        log.info("GROSSE QUEUE DE MERDE");
+        log.info(test.toString());
+        return test;
+
+
+    }
     
     public List<RendezVous> getByName(String first_name){
         return rendezVousRepository.findByFirstName(first_name);
