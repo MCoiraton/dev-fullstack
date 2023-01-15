@@ -19,18 +19,4 @@ export class AuthGuard implements CanActivate {
       return false
     }
   }
-  isAdmin(
-    next: ActivatedRouteSnapshot,
-    state: RouterStateSnapshot): boolean {
-      console.log('isAdmin called');
-    let isAdmin = this.authService.isAuthentificatedAsAdmin();
-    if (isAdmin){
-      return true
-    } else {
-      this.router.navigate(['/login']);
-      return false
-    }
-  }
-  
-  
 }

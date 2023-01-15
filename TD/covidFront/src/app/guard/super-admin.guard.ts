@@ -12,7 +12,7 @@ export class SuperAdminGuard implements CanActivate {
   canActivate(
     next: ActivatedRouteSnapshot,
     state: RouterStateSnapshot): boolean {
-    console.log('isAdmin called');
+    console.log('isSuperAdmin called');
     let isAdmin = this.authService.isAuthentificatedAsSAdmin();
     if (isAdmin){
       return true
