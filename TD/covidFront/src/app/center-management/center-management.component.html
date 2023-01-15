@@ -1,5 +1,6 @@
 <ul class="list-group">
-    <li class="list-group-item" *ngFor="let appointment of appointments$ | async">
+    <div *ngFor="let appointment of appointments">
+    <li class="list-group-item" >
         <p>Id de référencement : {{appointment.id}}</p>
         <p>Nom : {{appointment.firstName}}</p>
         <p>Prénom : {{appointment.lastName}}</p>
@@ -7,4 +8,5 @@
         <strong>Date de rendez-vous : {{appointment.appointmentDate}}</strong>
         <button  class="btn btn-primary" type="button" (click)="delRdv(appointment.id)">supprimer</button>
     </li>
+    </div>
   </ul>

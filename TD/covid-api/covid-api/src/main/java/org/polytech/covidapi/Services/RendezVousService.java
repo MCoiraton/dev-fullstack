@@ -41,8 +41,6 @@ public class RendezVousService {
 
     public List<RendezVous> getByCentreId(int id){
         List<RendezVous> test =  rendezVousRepository.findAllByCentre_id(id);
-        log.info("GROSSE QUEUE DE MERDE");
-        log.info(test.toString());
         return test;
 
 

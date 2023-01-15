@@ -22,7 +22,7 @@ const routes: Routes = [
   { path: 'login', component: LoginComponent},
   { path: 'waiting/:temps', component: WaitingComponent},
   { path: 'admin/createUser', component:CreateUserComponent, canActivate:[AdminGuard]},
-  { path: 'admin/superAdmin', component:SuperAdminComponent, canActivate:[SuperAdminGuard]},
+  { path: 'admin/SuperAdmin', component:SuperAdminComponent, canActivate:[SuperAdminGuard]},
   { path : '**', redirectTo: 'search', pathMatch: 'full'}
 ];
 

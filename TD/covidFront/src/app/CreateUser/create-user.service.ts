@@ -14,7 +14,11 @@ export class CreateUserService {
       private http: HttpClient
   ) {}
 
-  signup(user:any) {
+  signupMedecin(user:any) {
     return this.http.post<User>('http://localhost:8080/admin/medecin', user)
+  }
+
+  signupAdmin(user:any) {
+    return this.http.post<User>('http://localhost:8080/superadmin/newadmin', user)
   }
 }

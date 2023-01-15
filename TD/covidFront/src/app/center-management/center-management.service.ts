@@ -13,6 +13,9 @@ export class CenterManagementService {
   getAppointment(id: number): Observable<Appointment[]> {
     console.log(`http://localhost:8080/admin/appointment/centre/${id}`)
     return this.http.get<Appointment[]>(`http://localhost:8080/admin/appointment/centre/${id}`)
-    
 }
+
+  deleteAppointment(id: number){
+    return this.http.delete<Appointment>(`http://localhost:8080/admin/appointment/${id}`)
+  }
 }

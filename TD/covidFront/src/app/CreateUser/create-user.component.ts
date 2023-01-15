@@ -13,7 +13,7 @@ export class CreateUserComponent implements OnInit {
   roles = [
     {value: '', viewValue: ''},
   ];
- 
+  UserRole = JSON.parse(localStorage.getItem('user')!)?.role.role
   constructor(@Inject(CreateUserService) private LoginService: CreateUserService, private authService: AuthService) {
     if(this.authService.isAuthentificatedAsSAdmin()){
       this.roles = [
@@ -44,10 +44,15 @@ export class CreateUserComponent implements OnInit {
       role: this.loginForm.value.selectedRole,
       centre: {"centre_id": this.loginForm.value.centreId}
     }
-    this.LoginService.signup(data).subscribe(
+    console.log(this.UserRole);
+    if (this.UserRole == "ADMIN"){
+    this.LoginService.signupMedecin(data).subscribe(
       response => console.log(response)
-    );
+    );}
+    else if (this.UserRole == "SUPERADMIN"){
+      this.LoginService.signupAdmin(data).subscribe(
+        response => console.log(response));
 
   }
-
+  }
 }

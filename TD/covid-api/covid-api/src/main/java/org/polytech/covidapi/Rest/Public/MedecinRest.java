@@ -7,6 +7,7 @@ import org.polytech.covidapi.Repository.RendezVousRepository;
 import org.polytech.covidapi.Services.RendezVousService;
 import org.polytech.covidapi.Table.RendezVous;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PutMapping;
@@ -15,6 +16,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
+@CrossOrigin
 @RequestMapping(path = "/medecin")
 public class MedecinRest {
 

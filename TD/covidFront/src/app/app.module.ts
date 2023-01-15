@@ -23,6 +23,7 @@ import { NavbarComponent } from './navbar/navbar.component';
 import { InterceptorComponent } from './interceptor/interceptor.component';
 import { CommonModule } from '@angular/common';
 import { SuperAdminComponent } from './super-admin/super-admin.component';
+import { CenterManagementComponent } from './center-management/center-management.component';
 
 
 @NgModule({
@@ -38,6 +39,7 @@ import { SuperAdminComponent } from './super-admin/super-admin.component';
     NavbarComponent,
     InterceptorComponent,
     SuperAdminComponent,
+    CenterManagementComponent,
   ],
   imports: [
     BrowserModule,
