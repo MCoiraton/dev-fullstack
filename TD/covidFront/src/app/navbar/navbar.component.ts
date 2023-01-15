@@ -23,7 +23,7 @@ export class NavbarComponent implements OnInit {
     private readonly router: Router
   ) {
       if(localStorage.getItem('user')!=null) this.isLoged=true
-      if(JSON.parse(localStorage.getItem('user')!).role.role="ADMIN") this.isAdmin=true
+      if(localStorage.getItem('user')!=null && JSON.parse(localStorage.getItem('user')!).role.role=="ADMIN") this.isAdmin=true;
       this.userSubject = new BehaviorSubject<User>(JSON.parse(localStorage.getItem('user')|| '{}'));
       this.user = this.userSubject.asObservable(); 
   }
@@ -31,7 +31,7 @@ export class NavbarComponent implements OnInit {
   ngOnInit(): void {
   }
   showData() {
-    if (JSON.parse(localStorage.getItem('user')!)) {
+    if(localStorage.getItem('user')!=null && JSON.parse(localStorage.getItem('user')!)) {
       this.data = "Connecté en tant que : " + JSON.parse(localStorage.getItem('user')!).login;
     }
     else {
