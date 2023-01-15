@@ -42,7 +42,9 @@ Les superadmin ont accès à une interface qui leur est propre qui leur permet d
 
 ## LANCER LE PROJET :
 Suite a des problème lié a docker, il n'y a pas d'image de l'application. Il faut donc lancer manuellement le projet.
+
 ouvrir un terminal dans le dossier dev-fullstack/TD/covidfront et utiliser la commande ng serv pour lancer la partie Front
+
 pour le back, lancer l'application dev fullstack/TD/covid-api/covid-api/src/main/java/org/polytech/covidapi/CovidApiApplication.java    
 
 ## Etudiants : 
