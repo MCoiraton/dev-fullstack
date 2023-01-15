@@ -18,7 +18,10 @@
         </li>
         <li class="nav-item active">
             <a class="nav-link" href="admin/createUser" *ngIf="isAdmin">inscrire un médecin<span class="sr-only">(current)</span></a>
-          </li>
+        </li>
+        <li class="nav-item active">
+          <a class="nav-link" href="admin/SuperAdmin" *ngIf="isSAdmin">interface SuperAdmin<span class="sr-only">(current)</span></a>
+        </li>
         <!--
         <li class="nav-item">
           <a class="nav-link" href="#">Features</a>

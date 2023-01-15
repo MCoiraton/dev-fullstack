@@ -15,7 +15,8 @@ export class NavbarComponent implements OnInit {
   infos = '';
   //login = JSON.parse(localStorage.getItem('user')!).login;
   isLoged = false;
-  isAdmin = true;
+  isAdmin = false;
+  isSAdmin = false;  
   private userSubject: BehaviorSubject<User>;
   public user: Observable<User>;
   constructor(
@@ -25,6 +26,7 @@ export class NavbarComponent implements OnInit {
     if (localStorage.getItem('user') != null) {
       this.isLoged = true
       if (JSON.parse(localStorage.getItem('user')!).role.role == "ADMIN" || JSON.parse(localStorage.getItem('user')!).role.role == "SUPERADMIN") this.isAdmin = true;
+      if (JSON.parse(localStorage.getItem('user')!).role.role == "SUPERADMIN" || JSON.parse(localStorage.getItem('user')!).role.role == "SUPERADMIN") this.isSAdmin = true;
     }
     this.userSubject = new BehaviorSubject<User>(JSON.parse(localStorage.getItem('user') || '{}'));
     this.user = this.userSubject.asObservable();
@@ -51,6 +53,7 @@ export class NavbarComponent implements OnInit {
     localStorage.removeItem('user');
     this.isLoged = false;
     this.isAdmin = false;
+    this.isSAdmin = false;
     this.router.navigate(['/login']);
   }
 

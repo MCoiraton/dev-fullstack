@@ -11,6 +11,7 @@ import { LoginComponent } from './login/login.component';
 import { SearchAppointmentComponent } from './search-appointment/search-appointment.component';
 import { SearchbarComponent } from './searchbar/searchbar.component';
 import { WaitingComponent } from './waiting/waiting.component';
+import { SuperAdminComponent } from './super-admin/super-admin.component';
 
 const routes: Routes = [
   { path: 'search', component: SearchbarComponent},
@@ -21,7 +22,7 @@ const routes: Routes = [
   { path: 'login', component: LoginComponent},
   { path: 'waiting/:temps', component: WaitingComponent},
   { path: 'admin/createUser', component:CreateUserComponent, canActivate:[AdminGuard]},
-
+  { path: 'admin/superAdmin', component:SuperAdminComponent, canActivate:[SuperAdminGuard]},
   { path : '**', redirectTo: 'search', pathMatch: 'full'}
 ];
 

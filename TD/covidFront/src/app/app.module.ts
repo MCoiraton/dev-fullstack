@@ -22,6 +22,7 @@ import { CreateUserComponent } from './CreateUser/create-user.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { InterceptorComponent } from './interceptor/interceptor.component';
 import { CommonModule } from '@angular/common';
+import { SuperAdminComponent } from './super-admin/super-admin.component';
 
 
 @NgModule({
@@ -36,6 +37,7 @@ import { CommonModule } from '@angular/common';
     CreateUserComponent,
     NavbarComponent,
     InterceptorComponent,
+    SuperAdminComponent,
   ],
   imports: [
     BrowserModule,
