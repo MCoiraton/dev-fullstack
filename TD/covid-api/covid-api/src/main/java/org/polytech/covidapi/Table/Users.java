@@ -26,7 +26,7 @@ public class Users {
     @JoinColumn(name = "role")
     private Role roles;
 
-    @ManyToOne(cascade = CascadeType.ALL)
+    @ManyToOne(cascade = CascadeType.MERGE)
     @JoinColumn(name="centre_id")
     private Centre centre;
 

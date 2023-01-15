@@ -30,6 +30,7 @@ public class AdminRest {
     private final PasswordEncoder passwordEncoder;
     private final UserService userService;
 
+    
     public AdminRest(RendezVousService rendezVousService, RendezVousRepository repository, PasswordEncoder passwordEncoder, UserService userService){
         this.rendezVousService = rendezVousService;
         this.repository = repository;
@@ -54,7 +55,6 @@ public class AdminRest {
 
    //PARTIE MEDECIN
 
-   @CrossOrigin
    @PostMapping("/medecin")
    public void createMedecin(@RequestBody Users user){
         user.setPassword(passwordEncoder.encode(user.getPassword()));
