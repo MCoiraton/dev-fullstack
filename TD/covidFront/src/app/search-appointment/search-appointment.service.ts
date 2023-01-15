@@ -34,7 +34,9 @@ export class SearchAppointmentService{
     }
 
     vaccinate(idRdv:number){
-        this.http.put<any>(`http://localhost:8080/medecin/appointment/centre/${idRdv}`,true)
+        console.log(idRdv)
+        this.http.put<any>(`http://localhost:8080/medecin/appointment/centre/${idRdv}`,true).subscribe()
+        console.log("vaccinated")
     }
     
  
