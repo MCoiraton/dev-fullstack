@@ -15,12 +15,12 @@ import { WaitingComponent } from './waiting/waiting.component';
 const routes: Routes = [
   { path: 'search', component: SearchbarComponent},
   { path: 'appointment/:idCentre', component: AppointmentComponent},
-  { path: 'admin/centerManagement', component: CenterManagementComponent, canActivate:[AdminGuard,SuperAdminGuard]},
+  { path: 'admin/centerManagement', component: CenterManagementComponent, canActivate:[AdminGuard]},
   { path: 'list/:ville', component: CenterlistComponent},
-  { path: 'searchAppointment', component: SearchAppointmentComponent, canActivate:[AuthGuard,AdminGuard,SuperAdminGuard]},
+  { path: 'searchAppointment', component: SearchAppointmentComponent, canActivate:[AuthGuard]},
   { path: 'login', component: LoginComponent},
   { path: 'waiting/:temps', component: WaitingComponent},
-  { path: 'createUser', component:CreateUserComponent, canActivate:[AdminGuard,SuperAdminGuard]},
+  { path: 'createUser', component:CreateUserComponent, canActivate:[AdminGuard]},
 
   { path : '**', redirectTo: 'search', pathMatch: 'full'}
 ];

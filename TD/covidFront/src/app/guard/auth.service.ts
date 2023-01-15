@@ -11,7 +11,7 @@ export class AuthService {
   }
 
   isAuthentificatedAsAdmin() {
-    if(JSON.parse(localStorage.getItem('user')!).role.role=="ADMIN") return true
+    if(JSON.parse(localStorage.getItem('user')!).role.role=="ADMIN" || JSON.parse(localStorage.getItem('user')!).role.role=="SUPERADMIN") return true
     return false;
   }
 
