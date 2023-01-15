@@ -32,7 +32,10 @@ export class LoginService {
         (error) => {
             if (error.status == 200){//error 200 = bon login et mdp
             console.log(error.status);
-            localStorage.setItem('user', JSON.stringify(user));
+            this.http.get<any>('http://localhost:8080/public/user/' + user.login).subscribe((user) => {
+                console.log(user)
+                localStorage.setItem('user', JSON.stringify(user));
+            })
             console.log(localStorage.getItem('user'))
             this.router.navigate(['/search'])
             return user;}

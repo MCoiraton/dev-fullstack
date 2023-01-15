@@ -6,7 +6,7 @@
                 Please enter a valid user name
             </mat-error>
             <mat-error
-                *ngIf="loginForm.get('user')?.invalid && (loginForm.get('user')?.dirty || loginForm.get('user')?.touched) && loginForm.get('email')?.errors?.required">
+                *ngIf="loginForm.get('user')?.invalid && (loginForm.get('user')?.dirty || loginForm.get('user')?.touched) && loginForm.get('user')?.errors?.required">
                 user name is required
             </mat-error>
         </mat-form-field>

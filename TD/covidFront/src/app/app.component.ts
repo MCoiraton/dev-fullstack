@@ -22,66 +22,6 @@ export class AppComponent implements OnInit{
     
   }
 
-data = "";
-login = JSON.parse(localStorage.getItem('user')!).login;
-word = '';
-infos = '';
 
-
-
-/*hello() {
-  this.http.get<any>('http://localhost:8080/hello', {observe: 'response'})
-  .subscribe(resp => {
-    console.log(resp);
-    this.word = resp.body.data;
-  });
-}*/
-
-showData(){
- if (JSON.parse(localStorage.getItem('user')!)){
-  this.data = "Connecté en tant que : " + JSON.parse(localStorage.getItem('user')!).login;
- }
- else{
-  this.data = ""
- }
-
- return this.data;
-}
-
-logout() {
-  // remove user from local storage to log user out
-  localStorage.removeItem('user');
-  this.router.navigate(['/login']);
-}
-
-test(){
-  this.http.get<any>('http://localhost:8080/public/user/' + this.login).subscribe(
-    {next: (resp) => {
-      console.log(resp);}}
-  )
-}
-
-info() {
-  let temps: any;
-  this.http.get<any>('http://localhost:8080/public/appointment', {observe: 'response'})
-  .subscribe({
-    next: (resp) => {
-    console.log(resp);
-    const keys = resp.headers.keys();
-    console.log(keys);
-    const nbToken =  resp.headers.get('X-Rate-Limit-Remaining')
-    this.infos = `${nbToken} tokens restant`
-  },
-  error:  (err) => {
-    console.error(err);
-    const keys = err.headers.keys();
-    console.log(keys);
-    temps =  err.headers.get('x-rate-limit-retry-after-seconds')
-    this.infos = `Ressayer après ${temps} secondes`;
-    this.router.navigate(['/waiting', temps]);
-  }
-});
-
-}
 }
 

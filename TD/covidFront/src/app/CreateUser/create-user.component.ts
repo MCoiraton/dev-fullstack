@@ -20,6 +20,7 @@ export class CreateUserComponent implements OnInit {
       user: new FormControl('', [Validators.required]),
       mdp: new FormControl('', [Validators.required, Validators.pattern(
         '^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%^&*_=+-]).{8,12}$')]),
+      centreId: new FormControl('', [Validators.required]),
       selectedRole: new FormControl('', [Validators.required])
     });
   }
@@ -31,6 +32,7 @@ export class CreateUserComponent implements OnInit {
       login: this.loginForm.value.user,
       password: this.loginForm.value.mdp,
       role: this.loginForm.value.selectedRole,
+      centre: {"centre_id": this.loginForm.value.centre_id},
     }
     this.LoginService.signup(data).subscribe(
       response => console.log(response)

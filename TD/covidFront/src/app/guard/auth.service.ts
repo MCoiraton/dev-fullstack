@@ -11,12 +11,12 @@ export class AuthService {
   }
 
   isAuthentificatedAsAdmin() {
-    //if(localStorage.getItem('user')!=null) 
+    if(JSON.parse(localStorage.getItem('user')!).role.role="ADMIN") return true
     return false;
   }
 
   isAuthentificatedAsSAdmin(){
-    //if(localStorage.getItem('user')!=null)
+    if(JSON.parse(localStorage.getItem('user')!).role.role="SUPERADMIN") return true
     return false;
   }
 }

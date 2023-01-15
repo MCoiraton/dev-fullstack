@@ -6,7 +6,7 @@
                 Please enter a valid user name
             </mat-error>
             <mat-error
-                *ngIf="loginForm.get('user')?.invalid && (loginForm.get('user')?.dirty || loginForm.get('user')?.touched) && loginForm.get('email')?.errors?.required">
+                *ngIf="loginForm.get('user')?.invalid && (loginForm.get('user')?.dirty || loginForm.get('user')?.touched) && loginForm.get('user')?.errors?.required">
                 user name is required
             </mat-error>
         </mat-form-field>
@@ -20,6 +20,16 @@
             <mat-error
                 *ngIf="loginForm.get('mdp')?.invalid && (loginForm.get('mdp')?.dirty || loginForm.get('mdp')?.touched) && loginForm.get('mdp')?.errors?.required">
                 Password is required
+            </mat-error>
+        </mat-form-field>
+        <mat-form-field>
+            <input matInput class="form-control bg-light" id="centreId" placeholder="centreId" formControlName="centreId">
+            <mat-error *ngIf="!loginForm.get('centreId')?.errors?.required && (loginForm.get('centreId')?.errors?.pattern)">
+                Please enter a valid center id
+            </mat-error>
+            <mat-error
+                *ngIf="loginForm.get('centreId')?.invalid && (loginForm.get('centreId')?.dirty || loginForm.get('centreId')?.touched) && loginForm.get('centreId')?.errors?.required">
+                center id is required
             </mat-error>
         </mat-form-field>
         <mat-form-field>

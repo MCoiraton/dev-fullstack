@@ -47,7 +47,7 @@ public class LoginRest {
     public Users getRole(@PathVariable("login") String login){
         return userService.getRole(login);
     }
-
+    
     @PostMapping(path = "signup")
     public void addUser(@RequestBody Users newUser){
        newUser.setPassword(passwordEncoder.encode(newUser.getPassword()));

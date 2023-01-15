@@ -13,7 +13,7 @@ export class NavbarComponent implements OnInit {
   data = "";
   word = '';
   infos = '';
-  login = JSON.parse(localStorage.getItem('user')!).login;
+  //login = JSON.parse(localStorage.getItem('user')!).login;
   isLoged=false;
   isAdmin=true;
   private userSubject: BehaviorSubject<User>;
@@ -23,7 +23,7 @@ export class NavbarComponent implements OnInit {
     private readonly router: Router
   ) {
       if(localStorage.getItem('user')!=null) this.isLoged=true
-      if(localStorage.getItem('user')?.includes("ADMIN")) this.isAdmin=true
+      if(JSON.parse(localStorage.getItem('user')!).role.role="ADMIN") this.isAdmin=true
       this.userSubject = new BehaviorSubject<User>(JSON.parse(localStorage.getItem('user')|| '{}'));
       this.user = this.userSubject.asObservable(); 
   }
@@ -40,12 +40,6 @@ export class NavbarComponent implements OnInit {
 
     return this.data;
   }
-
-  test(){
-    this.http.get<any>('http://localhost:8080/public/user/' + this.login).subscribe((user) => {
-       console.log(user.role.role)})
-}
- 
     
 
 
