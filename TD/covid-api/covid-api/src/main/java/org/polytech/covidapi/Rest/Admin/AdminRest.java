@@ -54,7 +54,6 @@ public class AdminRest {
 
    //PARTIE MEDECIN
 
-   @CrossOrigin
    @PostMapping("/medecin")
    public void createMedecin(@RequestBody Users user){
         user.setPassword(passwordEncoder.encode(user.getPassword()));
