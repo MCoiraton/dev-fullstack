@@ -75,7 +75,7 @@ public class SuperAdminRest {
         userService.addUsers(user);
     }
 
-    @DeleteMapping(path = "admin/{id}")
+    @DeleteMapping(path = "/admin/{id}")
     public ResponseEntity<Users> deleteAdmin(@PathVariable("id") int id){
         Users user = userService.getById(id);
         user_repo.delete(user);
