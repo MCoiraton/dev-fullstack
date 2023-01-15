@@ -45,7 +45,9 @@ Suite a des problème lié a docker, il n'y a pas d'image de l'application. Il f
 
 ouvrir un terminal dans le dossier dev-fullstack/TD/covidfront et utiliser la commande ng serv pour lancer la partie Front
 
-pour le back, lancer l'application dev fullstack/TD/covid-api/covid-api/src/main/java/org/polytech/covidapi/CovidApiApplication.java    
+pour le back, lancer l'application dev fullstack/TD/covid-api/covid-api/src/main/java/org/polytech/covidapi/CovidApiApplication.java  
+
+pour accèder a l'application, utiliser le lien localhost:4200/ dans un navigateur internet
 
 ## Etudiants : 
 
