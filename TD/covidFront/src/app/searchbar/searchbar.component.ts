@@ -42,7 +42,7 @@ export class SearchbarComponent implements OnInit {
 
   onclick(centre:Center){
     if(localStorage.getItem('user')?.includes("ADMIN")){
-      this.router.navigate(['admin/centerManagement'])
+      this.router.navigate(['admin/centerManagement',centre.centreId],{state:{id: centre.centreId, nom: centre.nom, adresse: centre.adresse}})
     }
     else this.router.navigate(['/appointment/', centre.centreId],{state:{id: centre.centreId, nom: centre.nom, adresse: centre.adresse}}) 
   }
