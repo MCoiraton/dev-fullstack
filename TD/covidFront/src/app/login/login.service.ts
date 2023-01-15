@@ -1,8 +1,8 @@
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { BehaviorSubject, Observable } from 'rxjs';
-import { map } from 'rxjs/operators';
+import { BehaviorSubject, Observable, throwError } from 'rxjs';
+import { catchError, map } from 'rxjs/operators';
 import { User } from '../interface/User';
 
 @Injectable({ providedIn: 'root' })
@@ -26,25 +26,22 @@ export class LoginService {
     }
 
     login(user:any) {
-        return this.http.post<User>(`http://localhost:8080/public/login`, user).subscribe((user) => {
-            
-        },
-        (error) => {
-            if (error.status == 200){//error 200 = bon login et mdp
-            console.log(error.status);
-            this.http.get<any>('http://localhost:8080/public/user/' + user.login).subscribe((user) => {
-                console.log(user)
-                localStorage.setItem('user', JSON.stringify(user));
-            })
-            console.log(localStorage.getItem('user'))
-            this.router.navigate(['/search'])
-            return user;}
-            else {
-                console.log("mauvais utilisateur ou mdp")
-            }
-        })
-       
+        let token = window.btoa(user.login + ':' + user.password);
+        user.token = window.btoa(user.login + ':' + user.password);
+        localStorage.setItem('user', JSON.stringify(user));
+        console.log("Connard");
+        return this.http.get<User>(`http://localhost:8080/public/user/admin`).subscribe({next: users => {
+        users.token = token;
+        localStorage.setItem('user', JSON.stringify(users));
+        return users;
+        }, error: err => {
+      return throwError(() => err.error.message || err.statusText);
+        }});
     }
+       
+        
+       
+    
 
     logout() {
         // remove user from local storage to log user out

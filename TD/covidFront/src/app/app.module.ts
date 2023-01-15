@@ -4,7 +4,7 @@ import { MatCardModule } from '@angular/material/card';
 import { MatButtonModule } from '@angular/material/button'; 
 import { BrowserModule } from '@angular/platform-browser';
 import { MatProgressBarModule } from '@angular/material/progress-bar';
-import { HttpClientModule } from '@angular/common/http'
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http'
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { SearchbarComponent } from './searchbar/searchbar.component';
@@ -20,6 +20,7 @@ import { WaitingComponent } from './waiting/waiting.component';
 import { MatSelectModule } from '@angular/material/select';
 import { CreateUserComponent } from './CreateUser/create-user.component';
 import { NavbarComponent } from './navbar/navbar.component';
+import { InterceptorComponent } from './interceptor/interceptor.component';
 
 
 @NgModule({
@@ -33,6 +34,7 @@ import { NavbarComponent } from './navbar/navbar.component';
     WaitingComponent,
     CreateUserComponent,
     NavbarComponent,
+    InterceptorComponent,
   ],
   imports: [
     BrowserModule,
@@ -48,7 +50,7 @@ import { NavbarComponent } from './navbar/navbar.component';
     FormsModule,
     MatSelectModule
   ],
-  providers: [],
+  providers: [{provide: HTTP_INTERCEPTORS, useClass:InterceptorComponent, multi:true}],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

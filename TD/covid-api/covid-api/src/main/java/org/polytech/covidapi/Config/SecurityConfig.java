@@ -31,7 +31,7 @@ public class SecurityConfig {
         .antMatchers("/medecin/**").hasAuthority("MEDECIN")
         .antMatchers("/superadmin/**").hasAuthority("SUPERADMIN"))
         .httpBasic(Customizer.withDefaults())
-            .cors().disable()
+            .cors().and()
             .csrf().disable()
         .sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS);
         return http.build();

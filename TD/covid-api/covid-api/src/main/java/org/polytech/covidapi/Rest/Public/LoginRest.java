@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 
@@ -56,7 +57,7 @@ public class LoginRest {
     }
 
     @PostMapping(path="login")
-    public ResponseEntity logUser(@RequestBody Users user){
+    public ResponseEntity logUser(@RequestParam Users user){
         UserDetails test = userService.loadUserByUsername(user.getLogin()); //On récupère le hash stocké dans la bdd pour le login demandé
         log.info(test.getPassword());
         log.info(user.getPassword());

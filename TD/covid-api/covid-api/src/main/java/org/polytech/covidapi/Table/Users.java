@@ -21,13 +21,12 @@ public class Users {
 
     private String login;
     private String password;
-    private boolean admin;
 
     @ManyToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "role")
     private Role roles;
 
-    @ManyToOne
+    @ManyToOne(cascade = CascadeType.ALL)
     @JoinColumn(name="centre_id")
     private Centre centre;
 
@@ -35,14 +34,12 @@ public class Users {
         Role roles = new Role("MEDECIN");
         login = "";
         password = "";
-        admin = false;
        
     }
 
-    public Users(String login, String password, boolean admin){
+    public Users(String login, String password){
         this.login = login;
         this.password = password;
-        this.admin = admin;
     }
 
     public int getId(){
@@ -67,14 +64,6 @@ public class Users {
 
     public void setPassword(final String password){
         this.password = password;
-    }
-
-    public boolean getAdmin(){
-        return admin;
-    }
-
-    public void setAdmin(final boolean admin){
-        this.admin = admin;
     }
 
     public Role getRole(){

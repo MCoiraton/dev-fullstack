@@ -18,8 +18,9 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-@CrossOrigin
+
 @RestController
+@CrossOrigin
 @RequestMapping("/admin")
 public class AdminRest {
     @Autowired
@@ -53,6 +54,7 @@ public class AdminRest {
 
    //PARTIE MEDECIN
 
+   @CrossOrigin
    @PostMapping("/medecin")
    public void createMedecin(@RequestBody Users user){
         user.setPassword(passwordEncoder.encode(user.getPassword()));

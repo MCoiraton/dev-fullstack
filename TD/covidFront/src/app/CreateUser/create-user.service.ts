@@ -15,6 +15,6 @@ export class CreateUserService {
   ) {}
 
   signup(user:any) {
-    return this.http.post<User>('http://localhost:8080/public/signup', user)
+    return this.http.post<User>('http://localhost:8080/admin/medecin', user)
   }
 }

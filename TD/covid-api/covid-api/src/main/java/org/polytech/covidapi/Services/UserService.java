@@ -51,8 +51,11 @@ public class UserService implements UserDetailsService{
     }
 
     public Users getRole(String login){
-        log.info(login);
         return loginRepository.findByLogin(login).get();
+    }
+
+    public Users getById(int id){
+        return loginRepository.findById(id).get();
     }
 
     @PostConstruct
@@ -66,7 +69,6 @@ public class UserService implements UserDetailsService{
             Role roleUser = new Role("MEDECIN");
             users.setLogin("user");
             users.setPassword(passwordEncoder.encode("!Password1"));
-            users.setAdmin(false);
             users.setRole(roleUser);
             this.loginRepository.save(users);
             log.info("Création de l'admin par défaut");
@@ -74,14 +76,12 @@ public class UserService implements UserDetailsService{
             Role roleAdmin = new Role("ADMIN");
             admin.setLogin("admin");
             admin.setPassword(passwordEncoder.encode("!Password1"));
-            admin.setAdmin(true);
             admin.setRole(roleAdmin);
             this.loginRepository.save(admin);
             Users superAdmin = new Users();
             Role roleSuperAdmin = new Role("SUPERADMIN");
             superAdmin.setLogin("superAdmin");
             superAdmin.setPassword(passwordEncoder.encode("!Password1"));
-            superAdmin.setAdmin(true);
             superAdmin.setRole(roleSuperAdmin);
             this.loginRepository.save(superAdmin);
 
