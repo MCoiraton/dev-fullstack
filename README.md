@@ -49,6 +49,8 @@ pour le back, lancer l'application dev fullstack/TD/covid-api/covid-api/src/main
 
 pour accèder a l'application, utiliser le lien localhost:4200/ dans un navigateur internet
 
+Il faut aussi importer manuellement le fichier CSV "centres-vaccination.csv" dans la base de données utilisée. 
+
 ## Etudiants : 
 
 Julian Gaillard (Galaxycorn) n°31806139
