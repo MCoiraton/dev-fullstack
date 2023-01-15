@@ -13,21 +13,21 @@ public class Centre {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
-    private Integer centre_id;
+    private Integer id;
     private String nom;
     private String adresse;
     private String ville;   
 
     public Integer getCentreId(){
-    return centre_id;
+    return id;
     }
 
     public String getNom(){
         return nom;
     }
 
-    public void setCentre_id(Integer centre_id) {
-        this.centre_id = centre_id;
+    public void setCentre_id(Integer id) {
+        this.id = id;
     }
 
     public void setNom(String nom) {
