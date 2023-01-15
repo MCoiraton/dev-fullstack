@@ -32,6 +32,10 @@ export class SearchAppointmentService{
         return this.http.get<Appointment[]>(`${this.urlSearch}/${term}`)
         
     }
+
+    vaccinate(idRdv:number){
+        this.http.put<any>(`http://localhost:8080/medecin/appointment/centre/${idRdv}`,true)
+    }
     
  
 }

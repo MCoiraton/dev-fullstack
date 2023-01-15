@@ -12,6 +12,7 @@
             <p>Prénom : {{appointment.lastName}}</p>
             <p>Email : {{appointment.mail}}</p>
             <strong>Date de rendez-vous : {{appointment.appointmentDate}}</strong>
+            <button  class="btn btn-primary" type="button" (click)="vaccinate(appointment.id)">supprimer</button>
         </li>
       </ul>
     </div>

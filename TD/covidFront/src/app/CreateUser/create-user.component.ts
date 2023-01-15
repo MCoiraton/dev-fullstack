@@ -1,5 +1,6 @@
 import { Component, Inject, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { AuthService } from '../guard/auth.service';
 import { CreateUserService } from './create-user.service';
 
 @Component({
@@ -10,12 +11,21 @@ import { CreateUserService } from './create-user.service';
 export class CreateUserComponent implements OnInit {
   loginForm: FormGroup | any;
   roles = [
-    {value: 'ADMIN', viewValue: 'ADMIN'},
-    {value: 'MEDECIN', viewValue: 'MEDECIN'},
+    {value: '', viewValue: ''},
   ];
  
-  constructor(@Inject(CreateUserService) private LoginService: CreateUserService) {
-    
+  constructor(@Inject(CreateUserService) private LoginService: CreateUserService, private authService: AuthService) {
+    if(this.authService.isAuthentificatedAsSAdmin()){
+      this.roles = [
+        {value: 'ADMIN', viewValue: 'ADMIN'},
+        {value: 'MEDECIN', viewValue: 'MEDECIN'},
+      ];
+    }
+    else {
+      this.roles = [
+        {value: 'MEDECIN', viewValue: 'MEDECIN'},
+      ];
+    }
     this.loginForm = new FormGroup({
       user: new FormControl('', [Validators.required]),
       mdp: new FormControl('', [Validators.required, Validators.pattern(

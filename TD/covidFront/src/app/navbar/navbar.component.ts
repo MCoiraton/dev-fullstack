@@ -14,24 +14,27 @@ export class NavbarComponent implements OnInit {
   word = '';
   infos = '';
   //login = JSON.parse(localStorage.getItem('user')!).login;
-  isLoged=false;
-  isAdmin=true;
+  isLoged = false;
+  isAdmin = true;
   private userSubject: BehaviorSubject<User>;
   public user: Observable<User>;
   constructor(
     private readonly http: HttpClient,
     private readonly router: Router
   ) {
-      if(localStorage.getItem('user')!=null) this.isLoged=true
-      if(localStorage.getItem('user')!=null && JSON.parse(localStorage.getItem('user')!).role.role=="ADMIN") this.isAdmin=true;
-      this.userSubject = new BehaviorSubject<User>(JSON.parse(localStorage.getItem('user')|| '{}'));
-      this.user = this.userSubject.asObservable(); 
+    if (localStorage.getItem('user') != null) {
+      this.isLoged = true
+      if (JSON.parse(localStorage.getItem('user')!).role.role == "ADMIN" || JSON.parse(localStorage.getItem('user')!).role.role == "SUPERADMIN") this.isAdmin = true;
+    }
+    this.userSubject = new BehaviorSubject<User>(JSON.parse(localStorage.getItem('user') || '{}'));
+    this.user = this.userSubject.asObservable();
+
   }
 
   ngOnInit(): void {
   }
   showData() {
-    if(localStorage.getItem('user')!=null && JSON.parse(localStorage.getItem('user')!)) {
+    if (localStorage.getItem('user') != null && JSON.parse(localStorage.getItem('user')!)) {
       this.data = "Connecté en tant que : " + JSON.parse(localStorage.getItem('user')!).login;
     }
     else {
@@ -40,14 +43,14 @@ export class NavbarComponent implements OnInit {
 
     return this.data;
   }
-    
+
 
 
   logout() {
     // remove user from local storage to log user out
     localStorage.removeItem('user');
-    this.isLoged=false;
-    this.isAdmin=false;
+    this.isLoged = false;
+    this.isAdmin = false;
     this.router.navigate(['/login']);
   }
 
@@ -73,5 +76,5 @@ export class NavbarComponent implements OnInit {
       });
 
   }
-  
+
 }

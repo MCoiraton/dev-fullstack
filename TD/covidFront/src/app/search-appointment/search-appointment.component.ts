@@ -38,4 +38,8 @@ export class SearchAppointmentComponent implements OnInit {
   search(term : string): void {
     this.searchTerms.next(term);
   }
+
+  vaccinate(idRdv:number){
+   this.SearchAppointmentService.vaccinate(idRdv);
+  }
 }

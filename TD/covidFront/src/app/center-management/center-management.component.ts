@@ -31,6 +31,8 @@ ngOnInit(): void {
   }
 }
 
-
+  delRdv(idRdv:number){
+    console.log("so long rdv n "+ idRdv)
+  }
 
 }

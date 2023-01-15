@@ -21,6 +21,7 @@ import { MatSelectModule } from '@angular/material/select';
 import { CreateUserComponent } from './CreateUser/create-user.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { InterceptorComponent } from './interceptor/interceptor.component';
+import { CommonModule } from '@angular/common';
 
 
 @NgModule({
@@ -48,7 +49,8 @@ import { InterceptorComponent } from './interceptor/interceptor.component';
     ReactiveFormsModule,
     MatFormFieldModule,
     FormsModule,
-    MatSelectModule
+    MatSelectModule,
+    CommonModule
   ],
   providers: [{provide: HTTP_INTERCEPTORS, useClass:InterceptorComponent, multi:true}],
   bootstrap: [AppComponent]
