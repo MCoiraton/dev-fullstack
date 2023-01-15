@@ -40,4 +40,8 @@ De même, par défaut n'importe quel utilisateur peut créer un rendez-vous cepe
 
 Les superadmin ont accès à une interface qui leur est propre qui leur permet de chercher les centres et de les supprimer, de même avec les utilisateurs en utilisant leur ID. 
 
+## Etudiants : 
+
+Julian Gaillard (Galaxycorn) n°31806139
+
 
