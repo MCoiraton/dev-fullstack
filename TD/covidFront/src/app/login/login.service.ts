@@ -27,10 +27,7 @@ export class LoginService {
 
     login(user:any) {
         let token = window.btoa(user.login + ':' + user.password);
-        user.token = window.btoa(user.login + ':' + user.password);
-        localStorage.setItem('user', JSON.stringify(user));
-        console.log("Connard");
-        return this.http.get<User>(`http://localhost:8080/public/user/admin`).subscribe({next: users => {
+        return this.http.get<User>(`http://localhost:8080/public/user/` + user.login).subscribe({next: users => {
         users.token = token;
         localStorage.setItem('user', JSON.stringify(users));
         return users;
