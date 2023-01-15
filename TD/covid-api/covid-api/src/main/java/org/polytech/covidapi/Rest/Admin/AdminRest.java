@@ -30,6 +30,7 @@ public class AdminRest {
     private final PasswordEncoder passwordEncoder;
     private final UserService userService;
 
+    
     public AdminRest(RendezVousService rendezVousService, RendezVousRepository repository, PasswordEncoder passwordEncoder, UserService userService){
         this.rendezVousService = rendezVousService;
         this.repository = repository;
